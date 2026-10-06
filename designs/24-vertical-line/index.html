@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Line</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, advised by Professor Ken Nakagaki at the Actuated Experience Lab. About, the path from undergrad to now, publications, exhibitions and contact.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#about">Skip to the content</a>
+
+  <header class="bar" id="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <nav class="bar-nav" id="barNav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#path">Path</a>
+      <a href="#publications">Publications</a>
+      <a href="#exhibitions">Exhibitions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="name">
+      <div class="mat" id="mat">
+        <div class="intro-card" id="introCard">
+          <p class="kicker" id="kicker"></p>
+          <h1 id="name"></h1>
+          <p class="tagline" id="tagline"></p>
+          <p class="lab" id="lab"></p>
+          <p class="hero-links" id="heroLinks"></p>
+        </div>
+        <figure class="portrait" id="portrait">
+          <div class="mount"><span class="tape" aria-hidden="true"></span><img id="photo" alt="" width="800" height="1000"></div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec about" id="about" aria-labelledby="about-title" tabindex="-1"></section>
+
+    <section class="journey" id="path" aria-labelledby="path-title">
+      <svg class="tracks" id="tracks" aria-hidden="true" focusable="false"></svg>
+      <div class="line" id="line" aria-hidden="true"></div>
+      <div class="line done" id="lineDone" aria-hidden="true"></div>
+      <div class="service" id="service" aria-hidden="true"></div>
+      <nav class="stations" id="stations" aria-label="The seven stops on my path, in order"></nav>
+      <div class="toio" id="toio" aria-hidden="true"><span class="led"></span></div>
+      <div class="rover-wrap" id="roverWrap" aria-hidden="true">
+        <svg class="tether" id="tether" focusable="false"><path id="tetherPath"/></svg>
+        <div class="balloon" id="balloon"><span id="balloonText"></span></div>
+        <div class="rover"><span class="ctl"></span><span class="wheel a"></span><span class="wheel b"></span><span class="wheel c"></span><span class="wheel d"></span></div>
+      </div>
+      <div class="story" id="story"></div>
+    </section>
+
+    <section class="sec" id="publications" aria-labelledby="pubs-title" tabindex="-1"></section>
+    <section class="sec" id="exhibitions" aria-labelledby="exh-title" tabindex="-1"></section>
+    <footer class="sec contact" id="contact" aria-labelledby="contact-title" tabindex="-1"></footer>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page draws a transit line with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

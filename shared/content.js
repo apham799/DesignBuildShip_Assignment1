@@ -62,7 +62,7 @@ window.PORTFOLIO = {
         { src: 'assets/img/buoyance-interaction.jpg', w: 1600, h: 899, alt: 'Two people in a white gallery room among floating black balloons, each balloon paired with a small wheeled robot on the floor.', caption: 'Balloons and robots in the lab space.' },
         { src: 'assets/img/buoyance-circle.jpg', w: 1280, h: 495, alt: 'A person with arms outstretched, surrounded by a ring of floating black balloons between two camera stands.', caption: 'Standing inside a ring of balloons.' },
         { src: 'assets/img/buoyance-light.jpg', w: 1280, h: 1126, alt: 'A person on a ladder in a dark room holding a glowing white balloon next to a ceiling projector.', caption: 'A glowing balloon used in an assistive room-configuration application.' },
-        { src: 'assets/img/buoyance-demo.jpg', w: 1280, h: 963, alt: 'Children and adults gathered around a demo table with black balloons and small robots at the SouthSide Science Festival.', caption: 'Public demo at the 2024 SouthSide Science Festival.' }
+        { src: 'assets/img/buoyance-demo.jpg', w: 1280, h: 963, alt: 'Children and adults gathered around a demo table with black balloons and small robots at the South Side Science Festival.', caption: 'Public demo at the 2024 South Side Science Festival.' }
       ]
     },
     {
@@ -86,6 +86,23 @@ window.PORTFOLIO = {
       tags: ['Virtual reality', 'Course project'],
       images: []
     }
+  ],
+
+  // Said by Alan (2026-10-06): where he has exhibited or demoed. Newest first. What was shown at each is not recorded here; ask before adding it.
+  exhibitions: [
+    { year: '2026', title: 'South Side Science Festival' },
+    { year: '2025', title: 'Ars Electronica Digital Art Festival' },
+    { year: '2024', title: 'South Side Science Festival', photo: 'assets/img/buoyance-demo.jpg' }
+  ],
+
+  // Said by Alan (2026-10-06). Titles, venues and co-authors of the unpublished papers are not given yet; do not invent them.
+  // status: published | forthcoming (accepted, appearing within weeks) | under review. 'project' points to the entry in projects.
+  publications: [
+    { status: 'published', role: 'First author', project: 'buoyance' },
+    { status: 'forthcoming', role: 'Second author' },
+    { status: 'forthcoming', role: 'Third author' },
+    { status: 'under review', role: 'First author', venue: 'CHI 2027' },
+    { status: 'under review', role: 'Fourth author', venue: 'CHI 2027' }
   ],
 
   // Said by Alan (2026-10-06). Add what he actually builds with toio here once he describes it.

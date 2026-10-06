@@ -305,6 +305,18 @@ const ENTRIES = [
       'From the sketchbook: the reader is graph paper with a handwritten heading, one hand-drawn doodle per stop that draws itself when you pick it (and a wobble filter on the lines only, never on text), highlighter marks on the phrases that matter, a red margin note with a curly arrow, my name underlined in red pen, and the AxLab logo as a sticker. A Doodle button turns on a navy pen, red pen or yellow highlighter that draws on the whole workbench (Undo, Clear and Done, and nothing is saved).'
     ],
     learned: 'Adding two designs to a page that already had three only worked because each one got a single place: darkness is only over the mat, the sketchbook is only on the reader and the pen layer is only on request. The glowing balloon is the one new thing that moves, and it cannot cover text because it sits under the reader. While I liked the elements in their own theme UI individually, I think there is too much going on in this design and has too many moving/theme parts. I want to make the webpage fun but not overstimulating which it currently is leading towards.'
+  },
+  {
+    n: 24,
+    slug: '24-vertical-line',
+    title: 'The Line',
+    date: '2026-10-06',
+    concept: 'Built from the Workbench (design 22, not the busier design 23) as design 23 was starting to feel more like a presentation than a webpage, then revised into a formal, sectioned portfolio like other academic sites (About, Path, Publications, Exhibitions, Contact, with a sticky section nav). The Path is a vertical transit line (design 2, turned on its side) down the page, so the further you scroll the more you learn about me, and my photo is mounted on a graph-paper board in the hero (as in design 13).',
+    tried: [
+      'The Path section: the line is coloured by the toio LED colours and fills in as you pass each stop. The two degrees are two parallel tracks that merge into the main line. A RoverC robot (design 1) drives down a service rail beside the line as far as you have scrolled, reeling in a black balloon that names the stop you are at, and a toio cube (design 5) sits on the line at the current station. Every station is a link, so the line is also navigation.',
+      'The revision, after I looked at how two academic sites are sectioned: a short bio, then reverse-chronological lists with venue and author labels. New content from me: three exhibitions or demos (South Side Science Festival in 2024 and 2026, Ars Electronica Digital Art Festival in 2025) and the publications, grouped as published (Buoyanc\u00e9 at UIST 2025, first author), forthcoming (a second-author and a third-author paper) and under review for CHI 2027 (one first-author and one fourth-author paper). The unpublished papers have no titles yet because I have not given them. The About text has its own section, so the stops no longer repeat it, and the 2024 festival photo moved to Exhibitions.'
+    ],
+    learned: 'Moving the stops from a row at the top into the scroll made the page feel like a page, and adding named sections made it feel like a portfolio other people can actually use: a nav that always says where you are, and lists that are quick to scan. The playful parts (the mounted photo, the robot driving down the line, the toio at your current stop) survive because they sit in the margins and never replace the content. I first had a pin-display portrait in the hero, but I have not worked with pin displays myself, so it became a photo taped onto a board.'
   }
 ];
 
