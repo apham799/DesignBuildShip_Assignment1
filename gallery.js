@@ -110,16 +110,29 @@ const ENTRIES = [
     slug: '08-tapping-task',
     title: 'The Tapping Task',
     date: '2026-10-06',
-    concept: '(draft) A portfolio built on the classic pointing test from HCI, the ring of targets used to measure Fitts law. Seven targets sit on a ring, one for each stop on my path, and the lit target is always the next stop. Tap it to open that stop and the next one lights up across the ring, so tapping through the test walks you through my timeline.',
+    concept: 'A portfolio built on the classic pointing test from HCI, Fitts. Seven targets sit on a ring, one for each stop on my path, and the lit target is always the next stop. Tap it to open that stop and the next one lights up across the ring, so tapping through the test walks you through my timeline.',
     tried: [
-      '(draft) The stops are placed so that the zig-zag order of the tapping test is the order things happened. Tracing it draws a seven-point star, one line per step.',
-      '(draft) A live readout shows the distance, target width, index of difficulty and, for mouse users, movement time and throughput of each tap.',
-      '(draft) My two degrees ran in parallel, so they are one Undergrad target, and Contact lives in the corner instead of on the ring.',
-      '(draft) Any target can also be opened directly or with the keyboard, and Watch the task plays the whole round with a ghost cursor. On phones the ring comes first and the targets are large enough to tap.'
+      'The stops are placed so that the zig-zag order of the tapping test is the order things happened. Tracing it draws a seven-point star, one line per step.',
+      'A live readout shows the distance, target width, index of difficulty and, for mouse users, movement time and throughput of each tap.',
+      'Any target can also be opened directly or with the keyboard, and Watch the task plays the whole round with a ghost cursor. On phones the ring comes first and the targets are large enough to tap.'
     ],
-    learned: '(draft) A piece of my own field can be the navigation, not just decoration. Placing the stops so the test order matches my timeline turned an abstract study task into a story.',
-    next: '(draft) Let the ring change size as you go, so the later stops are smaller and harder to hit, like a real study.',
-    tech: ['Ring geometry', 'Fitts index of difficulty', 'Real pointer timing', 'SVG star trail']
+    learned: 'A piece of my own field can be the navigation. Placing the stops so the test order matches my timeline turned an abstract study task into a story. Though, while the zigzag order does better fit the nature of the Fitts Law test, it is not initially intuitive that the zigzag or is sequential rather than the neighbors on the circle.',
+  },
+  {
+    n: 9,
+    slug: '09-card-catalog',
+    title: 'Card Catalog',
+    date: '2026-10-06',
+    concept: '(draft) My portfolio filed in a library card catalog, a nod to Chicago and UChicago libraries and to my field, since a catalog is a classic information interface. Each stop on my path is a typed index card in a drawer, filed in the order it happened, with an oak cabinet of closed drawers above it.',
+    tried: [
+      '(draft) One card is pulled up to read at a time and the others stay filed as tabbed edges. Each card has a call number, a main entry, a typed title and imprint, notes, and tracings at the bottom (subjects, then added entries such as my co-authors), like a real catalog card.',
+      '(draft) First the cabinet face had twelve drawers and only two did anything, which was confusing. Now every drawer works: six subject drawers (Computer science, Economics, HCI, Actuated UI, Virtual reality, Balloons and robots) light up the cards filed under that subject and fade the rest, like the subject drawers of a real catalog, and About and Contact open as pulled cards.',
+      '(draft) The call numbers (HCI 1 to HCI 7) are a design device, not a real library scheme. Numbers and staggered colour tabs show the order, and the photos are pasted onto the card like prints.',
+      '(draft) Arrow keys, Home and End flip through the drawer, and it becomes a single column on phones.'
+    ],
+    learned: '(draft) A warm, quiet, text-first design is a useful contrast with the interactive ones. The card format brought its own structure for free, and it needed no invented facts: the tracings and the subject drawers reuse the topics and co-authors I already have. Decoration that looks clickable but is not makes people hesitate, so every drawer should do something.',
+    next: '(draft) Make each card tip forward as it opens, and slide the drawer out when the page loads.',
+    tech: ['CSS accordion with grid rows', 'Ruled-paper backgrounds', 'Native dialog', 'Generated call numbers']
   }
 ];
 

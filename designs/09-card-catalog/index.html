@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — Card Catalog</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, filed in a card catalog: one index card for every stop, in the order it happened.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#drawer">Skip to the open drawer</a>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+  </header>
+
+  <main class="stage">
+    <section class="cabinet" aria-label="A card catalog cabinet">
+      <div class="face" id="face"></div>
+      <p class="face-hint">Pull a subject drawer to light up my cards on that topic, or pull About or Contact.</p>
+
+      <section class="drawer" id="drawer" aria-label="The drawer for Pham, Alan, filed in the order things happened">
+        <div class="holder" aria-hidden="true"><span>PHAM, ALAN</span></div>
+        <div class="guide" id="guide"></div>
+        <div class="order"><p aria-hidden="true">Filed in order of occurrence <span>&darr;</span></p><p class="filter" id="filter" hidden></p></div>
+        <div class="cards" id="cards"></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="slip" id="slip" aria-labelledby="slip-title">
+    <form method="dialog"><button class="slip-close" aria-label="Close">&times;</button></form>
+    <div id="slip-body"></div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page files my work in a card catalog with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
