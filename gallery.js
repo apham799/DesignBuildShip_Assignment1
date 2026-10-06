@@ -104,6 +104,22 @@ const ENTRIES = [
       'On phones the scorecard becomes a list of nine rows under a smaller course.'
     ],
     learned: 'I used the structure of golf (a hole, a scorecard, a marker, tees) and filled it only with what is already true about my path, so the theme and my work stay one thing.',
+  },
+  {
+    n: 8,
+    slug: '08-tapping-task',
+    title: 'The Tapping Task',
+    date: '2026-10-06',
+    concept: '(draft) A portfolio built on the classic pointing test from HCI, the ring of targets used to measure Fitts law. Seven targets sit on a ring, one for each stop on my path, and the lit target is always the next stop. Tap it to open that stop and the next one lights up across the ring, so tapping through the test walks you through my timeline.',
+    tried: [
+      '(draft) The stops are placed so that the zig-zag order of the tapping test is the order things happened. Tracing it draws a seven-point star, one line per step.',
+      '(draft) A live readout shows the distance, target width, index of difficulty and, for mouse users, movement time and throughput of each tap.',
+      '(draft) My two degrees ran in parallel, so they are one Undergrad target, and Contact lives in the corner instead of on the ring.',
+      '(draft) Any target can also be opened directly or with the keyboard, and Watch the task plays the whole round with a ghost cursor. On phones the ring comes first and the targets are large enough to tap.'
+    ],
+    learned: '(draft) A piece of my own field can be the navigation, not just decoration. Placing the stops so the test order matches my timeline turned an abstract study task into a story.',
+    next: '(draft) Let the ring change size as you go, so the later stops are smaller and harder to hit, like a real study.',
+    tech: ['Ring geometry', 'Fitts index of difficulty', 'Real pointer timing', 'SVG star trail']
   }
 ];
 

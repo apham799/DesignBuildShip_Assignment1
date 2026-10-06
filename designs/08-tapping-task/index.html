@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — The Tapping Task</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A portfolio laid out as a Fitts's-law tapping task: tap the lit target to move along my path.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#reader">Skip to the stop details</a>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="top-actions">
+      <button type="button" id="btn-watch" aria-pressed="false">Watch the task</button>
+      <button type="button" data-open="about" aria-pressed="false" aria-controls="reader">About</button>
+      <button type="button" data-open="contact" aria-pressed="false" aria-controls="reader">Contact</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="text" aria-label="About me and the selected stop">
+      <div class="who" id="who"></div>
+      <article class="reader" id="reader" role="region" aria-label="Stop details" tabindex="-1"></article>
+    </section>
+
+    <section class="task" aria-label="Seven targets in a ring. Tap the lit one to open that stop and light the next.">
+      <div class="ring" id="ring">
+        <svg class="lines" id="lines" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"></svg>
+        <div class="center" id="center" aria-hidden="true"></div>
+        <ol class="targets" id="targets"></ol>
+        <span class="ghost" id="ghost" aria-hidden="true" hidden></span>
+      </div>
+      <div class="readout" id="readout" aria-hidden="true"></div>
+      <p class="legend" aria-hidden="true">Fitts&rsquo;s law &nbsp;&middot;&nbsp; ID = log<sub>2</sub>(D / W + 1) &nbsp;&middot;&nbsp; throughput = ID / MT</p>
+      <button type="button" class="readlink" id="readlink">Read this stop &darr;</button>
+    </section>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page runs a tapping task with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
