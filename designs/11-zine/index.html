@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — Issue 01</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, as a two-ink print zine: one page for every stop on my path, in the order it happened.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#page-ug">Skip to page 1</a>
+
+  <main id="zine">
+    <header class="cover" id="cover">
+      <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+      <p class="masthead" id="masthead"></p>
+      <h1 class="title" id="title"></h1>
+      <div class="portrait"><span class="blob" aria-hidden="true"></span><canvas id="cv-head" class="halftone" role="img"></canvas><span class="tape t1" aria-hidden="true"></span></div>
+      <p class="tagline" id="tagline"></p>
+      <p class="start">Start on page 1 &darr;</p>
+      <span class="balloon b-cover" aria-hidden="true"></span>
+    </header>
+
+    <div id="pages"></div>
+
+    <section class="insert" id="about" aria-labelledby="about-title"></section>
+    <footer class="back-cover" id="contact" aria-labelledby="contact-title"></footer>
+  </main>
+
+  <nav class="strip" id="strip" aria-label="Pages">
+    <p class="where" id="where" aria-hidden="true"></p>
+    <ol id="strip-list"></ol>
+    <a class="pill" href="#about">About</a>
+    <a class="pill" href="#contact">Contact</a>
+    <button type="button" class="pill swap" id="swap" aria-pressed="false" title="Swap the two inks">Swap inks</button>
+  </nav>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This zine is printed with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="halftone-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

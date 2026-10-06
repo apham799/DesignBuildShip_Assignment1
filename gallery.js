@@ -144,7 +144,20 @@ const ENTRIES = [
       'The controls are built on real form inputs and buttons, so the keyboard works (arrows, Home and End on the fader and knob), and the panel follows the system light or dark setting.',
       'The content stays plain readable text on the display, not a drawing of a device. On phones the display comes first, then the fader, then the channels, then the settings.'
     ],
-    learned: 'The agent might be good at coming up with designs but can be poor with small little UI details that can make the interface hard/confusing to operate. There are also some risks of imitating a medium as some require a level of expertise and sometimes there needs to be a compromise between realness and usability.'}
+    learned: 'The agent might be good at coming up with designs but can be poor with small little UI details that can make the interface hard/confusing to operate. There are also some risks of imitating a medium as some require a level of expertise and sometimes there needs to be a compromise between realness and usability.'},
+  {
+    n: 11,
+    slug: '11-zine',
+    title: 'Issue 01',
+    date: '2026-10-06',
+    concept: 'A loud two-ink print zine, the opposite of the interactive pages. My name is set huge across the cover, my headshot is a halftone portrait, and every stop on my path gets its own page with a giant page number, in the order it happened.',
+    tried: [
+      'A real halftone portrait on the cover: my headshot is drawn as dots on a 45 degree screen, sized by how dark the photo is at that spot. The brightness grid is precomputed, because a browser will not read the pixels of a local image. I first halftoned the Buoyancé photos too, but at that size they became non-distinguishable. So, they are regular photos taped to the page at crooked angles like a portrait book.',
+      'The giant numerals count the stops, 01 to 07, so the order of events is the loudest thing on every page. A strip along the bottom shows the page you are on and enables jumps between them.',
+      'A Swap inks button trades the two inks, recolouring the headlines, numbers and photos akin to a dark/light mode toggle. Black foil balloons, from Buoyancé, float through the pages as the recurring cut-out shape.'
+    ],
+    learned: 'A static layout can carry a whole page with type and print effects alone. The orange only reaches 3.2 to 1 against the paper, so it is used for giant numerals and headlines, and all small text stays the deep blue.'
+  }
 ];
 
 /* ---------- render ---------- */
