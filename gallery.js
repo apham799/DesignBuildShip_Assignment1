@@ -83,17 +83,27 @@ const ENTRIES = [
     slug: '06-skyline',
     title: 'Skyline',
     date: '2026-10-06',
-    concept: '(draft) A merge of two earlier ideas: the Chicago transit map from design 02 and the balloons-and-robots world of Buoyancé. The map is printed on the floor of a lab, tilted in 3D, and every stop is a black balloon tethered to its spot. The height of each balloon says when that stop happened, so the map becomes a rising skyline (a small Chicago pun).',
+    concept: 'The first attempt of a merge of two earlier ideas: the Chicago transit map from design 2 and the balloons-and-robots world of Buoyancé from design 1. The map is printed on the floor of a lab, tilted in 3D (like the theme of the project), and every stop is a black balloon tethered to its spot. The height of each balloon says when that stop happened, so the map becomes a rising skyline.',
     tried: [
-      '(draft) Real 3D with CSS transforms: the floor tilts a little as the pointer moves, and the balloons stay upright and facing you.',
-      '(draft) Balloon height encodes time, the same idea as Buoyancé showing abstract data in 3D space. Selecting a stop reels its balloon higher.',
-      '(draft) Small RoverC-style robots drive each line one way, forward in time, towing coloured balloons whose tethers are reeled out as they go. They glide along the diagonals without turning, like a mecanum-wheel robot.',
-      '(draft) Click a stop and the robot whose line serves it drives there and parks on it, while that balloon is reeled higher. Pick another stop (or click the same one again) and the robot goes back to patrolling.',
-      '(draft) On phones the room goes on top and a plain list of stops sits underneath; there is a pause button for the robots, and with reduced motion they park.'
+      'Balloon height encodes time, the same idea as Buoyancé showing abstract data in 3D space. Selecting a stop reels its balloon higher.',
+      'Small RoverC-style robots drive each line one way, forward in time, towing coloured balloons whose tethers are reeled out as they go. They glide along the diagonals without turning, like a mecanum-wheel robot.',
+      'Click a stop and the robot whose line serves it drives there and parks on it, while that balloon is reeled higher. Pick another stop (or click the same one again) and the robot goes back to patrolling.',
+      'On phones the room goes on top and a plain list of stops sits underneath; there is a pause button for the robots, and with reduced motion they park.'
     ],
-    learned: '(draft) Merging two ideas worked best when each kept its job: the map says where and in what order, the balloons say how late. Putting the data in the height made the 3D feel meaningful, not decorative.',
-    next: '(draft) Let a robot drive to the stop you select and reel its balloon up itself, and let the balloons sway with the robots passing underneath.',
-    tech: ['CSS 3D transforms', 'Billboarded balloons', 'SVG paths on a tilted plane', 'Per-frame tether reeling']
+    learned: 'Merging two ideas worked best when each kept its job: the map says where and in what order, the balloons say how late. Putting the data in the height created an opportunity to put in another parallel to the Buoyancé project.',
+  },
+  {
+    n: 7,
+    slug: '07-golf-hole',
+    title: 'Nine Holes',
+    date: '2026-10-06',
+    concept: 'Golf has been a big part of my life, so this page is one golf hole (Even if the "score" is pretty bad). My path runs down a striped fairway from the tees to the flag, and the scorecard along the bottom is the navigation: nine shots, one for each stop, in the order they happened.',
+    tried: [
+      'Click a "shot" on the scorecard or a marker on the course and a ball is hit there: it flies in an arc with a dotted tracer, bounces, and settles. Reaching now drops it in the cup.',
+      'The yardage book on the right is the details panel, with a Next hole button, and Play the round hits all nine holes in order.',
+      'On phones the scorecard becomes a list of nine rows under a smaller course.'
+    ],
+    learned: 'I used the structure of golf (a hole, a scorecard, a marker, tees) and filled it only with what is already true about my path, so the theme and my work stay one thing.',
   }
 ];
 

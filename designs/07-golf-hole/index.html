@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — Nine Holes</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, laid out as a round of golf: pick a hole and the ball flies there.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#book">Skip to the yardage book</a>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="top-actions">
+      <button type="button" id="btn-round" aria-pressed="false">Play the round</button>
+      <button type="button" data-open="about" aria-pressed="false" aria-controls="book">About</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="left">
+      <section class="course" aria-label="A golf hole. Each numbered marker is a stop on my path, from the tees to the green.">
+        <div class="course-art" id="course">
+          <svg id="art" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"></svg>
+          <div class="markers" id="markers"></div>
+        </div>
+      </section>
+
+      <nav class="scorecard-wrap" aria-label="Scorecard: pick a hole to hit a shot there">
+        <ol class="scorecard" id="scorecard"></ol>
+      </nav>
+    </div>
+
+    <aside class="book" id="book" tabindex="-1" aria-label="Yardage book">
+      <div class="player" id="player"></div>
+      <div class="page" id="page"></div>
+    </aside>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page plays a round of golf with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
