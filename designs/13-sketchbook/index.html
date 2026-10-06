@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Sketchbook</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A graph-paper sketchbook: a pen draws the path from stop to stop, and you can doodle on the page.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#pages">Skip to the first page</a>
+
+  <!-- the hand-drawn wobble: a tiny displacement of every doodle line; text is never filtered -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <header class="bar" id="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <nav class="bar-actions" aria-label="Notebook">
+      <a class="btn" href="#about">About</a>
+      <a class="btn" href="#contact">Contact</a>
+      <button type="button" class="btn" id="pen" aria-pressed="false" aria-controls="tray"><span aria-hidden="true">&#9998;</span> Doodle</button>
+    </nav>
+    <div class="tray" id="tray" role="group" aria-label="Doodle tools" hidden>
+      <span class="tray-hint">Drag on the page to draw. Nothing is saved.</span>
+      <span class="swatches" role="group" aria-label="Pen colour">
+        <button type="button" class="sw sw-navy" data-ink="navy" aria-pressed="true" aria-label="Navy pen"></button>
+        <button type="button" class="sw sw-red" data-ink="red" aria-pressed="false" aria-label="Red pen"></button>
+        <button type="button" class="sw sw-hl" data-ink="hl" aria-pressed="false" aria-label="Yellow highlighter"></button>
+      </span>
+      <button type="button" class="btn small" id="undo" disabled>Undo</button>
+      <button type="button" class="btn small" id="clear" disabled>Clear</button>
+      <button type="button" class="btn small" id="done">Done</button>
+    </div>
+  </header>
+
+  <main class="sheet" id="sheet">
+    <section class="cover" id="cover" aria-labelledby="title">
+      <div class="cover-words">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="title"></h1>
+        <svg class="scribble doodle" viewBox="0 0 420 26" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" d="M6,16 C60,6 120,22 190,12 S320,8 414,14"/><path class="ln" pathLength="1" d="M40,22 C120,16 200,24 300,19"/></svg>
+        <p class="tagline" id="tagline"></p>
+        <p class="lab" id="lab"></p>
+      </div>
+      <figure class="portrait" id="portrait"></figure>
+
+      <nav class="route" id="route" aria-label="The seven stops on my path, earliest first"></nav>
+    </section>
+
+    <div class="pages" id="pages"></div>
+
+    <section class="about" id="about" aria-labelledby="about-title" tabindex="-1"></section>
+    <section class="contact" id="contact" aria-labelledby="contact-title" tabindex="-1"></section>
+
+    <svg class="ink" id="ink" aria-hidden="true" focusable="false"></svg>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a sketchbook that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

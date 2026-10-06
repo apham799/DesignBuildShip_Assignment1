@@ -171,6 +171,19 @@ const ENTRIES = [
       'Clicking an object (or tabbing to it, which also moves the light there) opens that stop on a bright projected screen below the room, with numbered stops, previous and next, and About and Contact.'
     ],
     learned: 'A dark, hidden-until-lit idea is risky for readability because it can be difficult to distinguish which items can be put in dark for the effect and which ones need to remain readble. Thus, the rule I followed was that the darkness may hide decoration but never text. Mixing up the stacking order put the darkness over the labels at first, which I caught by looking at the render.'
+  },
+  {
+    n: 13,
+    slug: '13-sketchbook',
+    title: 'The Sketchbook',
+    date: '2026-10-06',
+    concept: 'The page is a research notebook: graph paper, a navy pen, a red pen and a yellow highlighter that my advisor is always telling me to use in every stage of a project. A pen line is drawn down the page from stop to stop as you scroll, every stop gets its own doodle that sketches itself in, and there is a Doodle button in the top-right corner so visitors can scribble on the page too (inspired by a similar effect on a friend`s portfolio).',
+    tried: [
+      'Seven hand-drawn doodles, one per stop: books, code brackets and a chart for the two degrees, a VR headset for the Diver Sim, a pen for PenPal, a little robot and flask for the lab, a laptop in front of a Chicago skyline, tethered balloons for Buoyancé and a glowing balloon for now.',
+      'The winding pen line between the numbered bubbles is drawn as you scroll, with a red pen tip at its head and a dotted pencil guide ahead of it. The cover has the same seven bubbles as a contents list, and each bubble is a link to its page.',
+      'The Doodle button turns on a pen, with navy, red and highlighter, Undo, Clear and Done. Strokes are SVG paths in page coordinates, which becomes more relevant with my more recent ongoing project, so they stay put as you scroll, and they live only in memory: nothing is saved and a reload gives a clean page. The pen tray hangs below the bar instead of pushing the page down, which would have slid the page out from under the strokes. Escape stops drawing.'
+    ],
+    learned: 'A hand-drawn look only works if the font is still easily readable: the handwriting font is for headings and notes, the body text is a normal serif, and the pen line runs in its own gutter so it never touches a word.'
   }
 ];
 

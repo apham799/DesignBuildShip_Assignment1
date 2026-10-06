@@ -1,0 +1,257 @@
+/* The Sketchbook: graph paper, navy and red pen, a yellow highlighter. */
+:root {
+  --paper: #fbf9f1;
+  --ink: #1c2a52;
+  --text: #171f3d;
+  --red: #b3261e;
+  --hl: #ffe14d;
+  --grid: rgba(60, 110, 180, 0.17);
+  --focus: #1b5ccc;
+  --hand: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Chalkboard SE", "Noteworthy", "Ink Free", "Comic Sans MS", "Marker Felt", cursive;
+  --body: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --wobbly: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --bar: 64px;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--bar) + 16px); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--text);
+  font: 1.05rem/1.6 var(--body);
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--ink); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+a:hover { background: var(--hl); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 12px; top: -80px; z-index: 200; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 6px; }
+.skip:focus { top: 10px; }
+.noscript { margin: 0; padding: 14px 20px; background: var(--hl); font-family: var(--hand); }
+mark {
+  background: linear-gradient(transparent 42%, var(--hl) 42%, var(--hl) 92%, transparent 92%);
+  color: inherit; padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* ---------- the bar ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px;
+  min-height: var(--bar); padding: 10px 20px;
+  background: var(--paper); border-bottom: 2px solid var(--ink);
+}
+.back { font-family: var(--hand); font-weight: 700; text-decoration: none; padding: 6px 8px; border-radius: 8px; }
+.bar-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  font: 700 0.95rem/1 var(--hand); color: var(--ink); background: var(--paper); text-decoration: none; cursor: pointer;
+  border: 2.5px solid var(--ink); border-radius: var(--wobbly); padding: 10px 16px; min-height: 40px;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn:hover { background: var(--hl); }
+.btn[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.btn.small { padding: 8px 12px; min-height: 36px; font-size: 0.88rem; }
+.btn:disabled { opacity: 0.5; cursor: default; background: var(--paper); }
+/* the tray hangs below the bar instead of growing it, so opening it never moves the page under the strokes */
+.tray { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 20px; background: var(--paper); border-bottom: 2px solid var(--ink); }
+.tray[hidden] { display: none; }
+.tray-hint { font-family: var(--hand); font-size: 0.9rem; margin-right: auto; }
+.swatches { display: flex; gap: 10px; }
+.sw { width: 36px; height: 36px; border-radius: 50%; border: 3px solid var(--ink); cursor: pointer; padding: 0; }
+.sw-navy { background: #1c2a52; }
+.sw-red { background: #d12b1f; }
+.sw-hl { background: #ffd400; }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink); }
+
+/* ---------- the cover ---------- */
+.sheet { position: relative; }
+.cover {
+  max-width: 1100px; margin: 0 auto; padding: 56px 24px 24px;
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px 56px; align-items: center;
+}
+.eyebrow { margin: 0 0 8px; font: 700 0.9rem/1.4 var(--hand); color: var(--red); letter-spacing: 0.02em; }
+h1 {
+  margin: 0; font: 700 clamp(3rem, 8.2vw, 5.8rem)/1.05 var(--hand); color: var(--ink); overflow-wrap: anywhere;
+}
+.scribble.doodle { display: block; width: min(420px, 90%); height: auto; margin: 4px 0 18px; }
+.scribble.doodle path { stroke: var(--red); stroke-width: 4; }
+.tagline { margin: 0 0 10px; font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.45; max-width: 24em; }
+.lab { margin: 0; font: 700 1rem/1.4 var(--hand); }
+.portrait { margin: 0; justify-self: center; width: min(100%, 340px); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.portrait .mount { transform: rotate(2deg); }
+.hi { font: 700 1.3rem/1 var(--hand); color: var(--red); display: inline-flex; align-items: flex-end; gap: 6px; transform: rotate(-3deg); }
+.hi svg { width: 44px; height: 30px; }
+.hi svg, .note svg { fill: none; stroke: var(--red); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* a photo mounted on the page with black photo corners; the corners sit on the mat, never on the picture */
+.mount { --c: 22px; position: relative; padding: var(--c); background: #fff; box-shadow: 2px 3px 0 rgba(23, 32, 61, 0.16), 0 8px 20px rgba(23, 32, 61, 0.12); }
+.mount img { display: block; width: 100%; height: auto; }
+.mount::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%) 0 0,
+    linear-gradient(225deg, var(--ink) 50%, transparent 50%) 100% 0,
+    linear-gradient(45deg, var(--ink) 50%, transparent 50%) 0 100%,
+    linear-gradient(315deg, var(--ink) 50%, transparent 50%) 100% 100%;
+  background-size: var(--c) var(--c); background-repeat: no-repeat;
+}
+
+/* contents: seven bubbles joined by a squiggle */
+.route { grid-column: 1 / -1; margin-top: 8px; }
+.route-title { margin: 0 0 6px; font: 700 0.95rem/1 var(--hand); color: var(--red); display: flex; align-items: center; gap: 10px; }
+.route-title i { flex: 0 0 56px; height: 0; border-top: 3px solid var(--red); position: relative; }
+.route-title i::after { content: ""; position: absolute; right: -1px; top: -7px; width: 9px; height: 9px; border-top: 3px solid var(--red); border-right: 3px solid var(--red); transform: rotate(45deg); }
+.route ol { list-style: none; margin: 0; padding: 0; display: flex; }
+.route li { flex: 1 1 0; position: relative; min-width: 0; }
+.route li:not(:last-child)::before {
+  content: ""; position: absolute; top: 28px; left: calc(50% + 36px); right: calc(-50% + 42px); height: 10px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='10' viewBox='0 0 30 10'%3E%3Cpath d='M0,5 q7.5,-8 15,0 t15,0' fill='none' stroke='%231c2a52' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center / 30px 10px;
+}
+.route li:not(:last-child)::after {
+  content: ""; position: absolute; top: 28px; right: calc(-50% + 36px); width: 10px; height: 10px; pointer-events: none;
+  border-top: 3px solid var(--ink); border-right: 3px solid var(--ink); transform: rotate(45deg);
+}
+.route a { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 4px; text-decoration: none; color: var(--text); border-radius: 12px; }
+.route a:hover { background: transparent; }
+.route a:hover .bubble, .route a:focus-visible .bubble { background: var(--hl); }
+.lbl { font: 700 1.02rem/1.2 var(--hand); text-align: center; overflow-wrap: anywhere; }
+.bubble {
+  display: grid; place-items: center; width: 52px; height: 52px; flex: none;
+  border: 3px solid var(--ink); border-radius: 50% 46% 52% 48% / 48% 52% 46% 50%; background: var(--paper);
+  font: 700 1.5rem/1 var(--hand); color: var(--ink);
+}
+.bubble.big { width: 68px; height: 68px; font-size: 2rem; }
+.bubble.now { background: var(--hl); }
+
+/* ---------- the pages ---------- */
+.pages { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.trail { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.trail path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.trail .guide { stroke: var(--ink); stroke-opacity: 0.35; stroke-width: 3; stroke-dasharray: 2 9; }
+.trail .drawn { stroke: var(--ink); stroke-width: 4; }
+.trail .tip { fill: var(--red); }
+
+.stop {
+  position: relative; z-index: 1; padding: 56px 0 72px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 130px minmax(0, 1fr); align-items: start;
+  grid-template-areas: "words gut sketch" "prints prints prints";
+}
+.stop.flip { grid-template-areas: "sketch gut words" "prints prints prints"; }
+.stop > .bubble { grid-area: gut; justify-self: center; position: relative; z-index: 2; margin-top: 4px; }
+.words { grid-area: words; max-width: 34em; }
+.when { margin: 0 0 6px; font: 0.9rem/1.3 var(--hand); color: var(--red); }
+.when span { font-weight: 700; }
+.words h2 { margin: 0 0 14px; font: 700 clamp(1.7rem, 3.4vw, 2.4rem)/1.15 var(--hand); color: var(--ink); overflow-wrap: anywhere; }
+.words p { margin: 0 0 14px; }
+.lead { font-size: 1.18rem; line-height: 1.55; }
+.cite { font-size: 0.95rem; }
+.links, .chips { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.links a { display: inline-block; font: 700 0.9rem/1.2 var(--hand); padding: 8px 12px; border: 2.5px solid var(--ink); border-radius: var(--wobbly); text-decoration: none; background: var(--paper); }
+.links a:hover { background: var(--hl); }
+.chips li { font: 0.85rem/1.2 var(--hand); padding: 5px 10px; border: 2px dashed var(--ink); border-radius: 8px; background: var(--paper); }
+
+.sketch { grid-area: sketch; display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 10px; }
+.doodle { width: min(100%, 360px); height: auto; filter: url(#wobble); overflow: visible; }
+.doodle path { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.doodle path.rd { stroke: var(--red); }
+.doodle path.sh { stroke: var(--paper); }
+.doodle path.fl { stroke: none; opacity: 0; transition: opacity 0.8s ease 0.5s; }
+.doodle path.fl.hl { fill: var(--hl); }
+.doodle path.fl.ink { fill: var(--ink); }
+.doodle path.ln { stroke-dasharray: 1 2; stroke-dashoffset: 1; transition: stroke-dashoffset 0.9s ease-in-out calc(var(--i, 0) * 0.05s); }
+.in .doodle path.ln { stroke-dashoffset: 0; }
+.in .doodle path.fl { opacity: 1; }
+.note { margin: 0; display: flex; align-items: flex-end; gap: 6px; font: 700 1.15rem/1.2 var(--hand); color: var(--red); transform: rotate(-2deg); }
+.note svg { width: 44px; height: 30px; flex: none; }
+.sticker { width: min(220px, 70%); height: auto; margin-top: 6px; padding: 10px 14px; background: #fff; border: 2px solid var(--ink); border-radius: 8px; transform: rotate(-3deg); box-shadow: 3px 4px 0 rgba(23, 32, 61, 0.18); }
+
+.prints { grid-area: prints; position: relative; z-index: 1; width: 100%; max-width: 780px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 22px; }
+.print { margin: 0; }
+.print .mount { --c: 16px; }
+.print figcaption { margin: 10px 4px 0; font: 0.95rem/1.35 var(--hand); }
+.prints > .print:first-child .mount { transform: rotate(-0.8deg); }
+.print-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+.print-col { display: flex; flex-direction: column; gap: 22px; }
+.print-col:nth-child(2) .mount { transform: rotate(0.9deg); }
+
+/* ---------- about, contact ---------- */
+.about { max-width: 1100px; margin: 0 auto; padding: 64px 24px 24px; }
+.kicker { margin: 0 0 4px; font: 700 0.95rem/1.3 var(--hand); color: var(--red); }
+.about h2, .contact h2 { margin: 0 0 18px; font: 700 clamp(2rem, 4vw, 2.8rem)/1.1 var(--hand); color: var(--ink); }
+.about-cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px 48px; align-items: start; }
+.about-text p { margin: 0 0 16px; max-width: 36em; }
+.facts { margin: 0; padding: 22px 24px; background: #fff; border: 2.5px solid var(--ink); border-radius: var(--wobbly); box-shadow: 3px 4px 0 rgba(23, 32, 61, 0.16); }
+.facts dt { font: 700 0.9rem/1.2 var(--hand); color: var(--red); margin-top: 12px; }
+.facts dt:first-child { margin-top: 0; }
+.facts dd { margin: 2px 0 0; font-size: 0.98rem; line-height: 1.45; }
+.contact { max-width: 1100px; margin: 0 auto; padding: 40px 24px 120px; display: flex; justify-content: center; }
+.sticky { width: min(100%, 560px); background: var(--hl); color: var(--text); padding: 30px 34px 28px; transform: rotate(-1.5deg); box-shadow: 4px 6px 0 rgba(23, 32, 61, 0.2); }
+.sticky .kicker { color: var(--red); }
+.sticky .big { display: block; margin: 0 0 14px; font: 700 clamp(1.15rem, 4.4vw, 1.9rem)/1.25 var(--hand); color: var(--ink); overflow-wrap: anywhere; }
+.sticky .big:hover { background: transparent; text-decoration-thickness: 4px; }
+.sticky ul { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font: 700 1rem/1.3 var(--hand); }
+.sticky a:hover { background: var(--paper); }
+.sticky .end { margin: 0; font: 700 1rem/1.3 var(--hand); }
+
+/* ---------- the doodle layer ---------- */
+.ink { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 60; overflow: hidden; pointer-events: none; }
+.pen-on .ink { pointer-events: auto; cursor: crosshair; touch-action: none; }
+.ink path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ink .s-navy { stroke: #1c2a52; stroke-width: 3; }
+.ink .s-red { stroke: #d12b1f; stroke-width: 3; }
+.ink .s-hl { stroke: #ffd400; stroke-width: 18; opacity: 0.5; mix-blend-mode: multiply; }
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 899px) {
+  .cover { grid-template-columns: 1fr; padding-top: 36px; gap: 20px; }
+  .portrait { width: min(100%, 300px); }
+  .pages { padding: 0 16px; }
+  .stop { grid-template-columns: 64px minmax(0, 1fr); grid-template-areas: "gut words" "gut sketch" "gut prints"; padding: 40px 0 56px; }
+  .stop.flip { grid-template-areas: "gut words" "gut sketch" "gut prints"; }
+  .stop > .bubble { width: 52px; height: 52px; font-size: 1.5rem; margin-top: 2px; }
+  .sketch { margin-top: 20px; align-items: flex-start; padding-top: 0; }
+  .prints { max-width: none; margin-top: 32px; }
+  .about, .contact { padding-left: 16px; padding-right: 16px; }
+  .about-cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 719px) {
+  .route ol { flex-direction: column; }
+  .route li:not(:last-child) { margin-bottom: 22px; }
+  .route li:not(:last-child)::before {
+    top: 58px; bottom: auto; height: 38px; left: 33px; right: auto; width: 0; background: none; border-left: 3px dotted var(--ink);
+  }
+  .route li:not(:last-child)::after { top: 90px; left: 28px; right: auto; transform: rotate(135deg); }
+  .route a { flex-direction: row; gap: 14px; padding: 6px 8px; }
+  .lbl { text-align: left; font-size: 1.1rem; }
+  .route-title i { flex-basis: 40px; }
+}
+@media (min-width: 900px) {
+  /* the photos sit on a sheet of their own, so the pen line passes behind it instead of through the captions */
+  .prints { padding: 30px 30px 24px; background: var(--paper); border: 2.5px solid var(--ink); border-radius: var(--wobbly); box-shadow: 3px 4px 0 rgba(23, 32, 61, 0.16); }
+}
+@media (max-width: 599px) {
+  .bar { padding: 8px 12px; gap: 6px 8px; }
+  .tray { padding: 10px 12px; }
+  .btn { padding: 8px 12px; font-size: 0.88rem; min-height: 40px; }
+  .back { padding: 6px 4px; }
+  .cover { padding-left: 16px; padding-right: 16px; }
+  .print-cols { grid-template-columns: 1fr; }
+  .sticky { padding: 24px 22px; }
+}
+@media (max-width: 479px) {
+  .back-text { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .doodle path.ln { stroke-dashoffset: 0; transition: none; }
+  .doodle path.fl { opacity: 1; transition: none; }
+}
+@media (prefers-contrast: more) {
+  :root { --grid: rgba(60, 110, 180, 0.08); --text: #000; --ink: #0d1530; --red: #8f1a14; }
+  .trail .guide { stroke-opacity: 0.6; }
+}
