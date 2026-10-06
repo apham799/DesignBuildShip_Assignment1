@@ -19,6 +19,92 @@
   const bu = project('buoyance'), pp = project('penpal'), dv = project('diver');
   const say = t => { $('status').textContent = t; };
 
+  // a highlighter stroke under the phrases that matter (a real <mark>, so it also reads as emphasis)
+  function hl(text, ...phrases) {
+    const re = new RegExp('(' + phrases.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')');
+    return text.split(re).map((part, i) => i % 2 ? el('mark', null, part) : part);
+  }
+  // a small curly arrow for the margin notes (it has to be created in the SVG namespace)
+  const curl = d => { const s = document.createElementNS(SVG_NS, 'svg'), p = document.createElementNS(SVG_NS, 'path'); s.setAttribute('viewBox', '0 0 60 40'); s.setAttribute('focusable', 'false'); p.setAttribute('d', d); s.append(p); return s; };
+
+  /* =====================================================================
+     The sketchbook doodles (design 13): every line is one <path class="ln" pathLength="1">, so one CSS rule can draw any of them.
+     ===================================================================== */
+  const arc = (cx, cy, rx, ry = rx) => `M${cx - rx},${cy}a${rx},${ry} 0 1,0 ${2 * rx},0a${rx},${ry} 0 1,0 ${-2 * rx},0`;
+  const ln = (d, cls = '') => `<path pathLength="1" class="ln ${cls}" d="${d}"/>`;
+  const fl = (d, cls = 'hl') => `<path class="fl ${cls}" d="${d}"/>`;
+  const doodle = (...parts) => `<svg class="doodle" viewBox="0 0 320 240" aria-hidden="true" focusable="false">${parts.join('')}</svg>`;
+  const rays = (cx, cy, r1, r2, skipDown) => Array.from({ length: 12 }, (_, i) => {
+    const a = i * Math.PI / 6, c = Math.cos(a), s = Math.sin(a);
+    if (skipDown && s > 0.9) return '';
+    return ln(`M${(cx + c * r1).toFixed(1)},${(cy + s * r1).toFixed(1)}L${(cx + c * r2).toFixed(1)},${(cy + s * r2).toFixed(1)}`);
+  }).join('');
+
+  const DOODLES = {
+    // two degrees: books for the first, code brackets and a rising chart for the second
+    ug: doodle(
+      fl('M24,142 L156,138 L158,200 L22,200 Z'),
+      ln('M28,196 L150,196 L150,170 L28,170 Z'), ln('M42,170 V196'), ln('M60,183 H130'),
+      ln('M38,168 L40,142 L138,140 L136,168'), ln('M52,155 H118'),
+      ln('M188,62 L158,90 L188,118'), ln('M262,62 L292,90 L262,118'), ln('M238,52 L214,126'),
+      ln('M186,206 V150 M186,206 H300'), ln('M194,196 Q214,190 226,172 T256,160 T294,132'), ln('M280,128 L294,132 L290,146', 'rd')),
+    // a VR headset above the waves
+    diver: doodle(
+      fl(arc(112, 120, 22), 'hl'), fl(arc(208, 120, 22), 'hl'),
+      ln('M64,96 Q64,80 80,80 H240 Q256,80 256,96 V148 Q256,164 240,164 H208 Q196,164 190,150 Q184,138 160,138 Q136,138 130,150 Q124,164 112,164 H80 Q64,164 64,148 Z'),
+      ln(arc(112, 120, 22)), ln(arc(208, 120, 22)),
+      ln('M104,80 Q160,46 216,80'), ln('M64,104 Q40,106 34,128'), ln('M256,104 Q280,106 286,128'),
+      ln('M14,204 q20,-14 40,0 t40,0 t40,0 t40,0 t40,0 t40,0 t40,0'), ln('M30,226 q20,-12 40,0 t40,0 t40,0 t40,0 t40,0 t40,0'),
+      ln('M30,176 q16,-14 32,0 q-16,14 -32,0 Z'), ln('M62,176 l10,-9 v18 z'),
+      ln(arc(288, 60, 6), 'rd'), ln(arc(300, 34, 9), 'rd'), ln(arc(274, 26, 4), 'rd')),
+    // a pen leaving a trail, standing on a spring
+    penpal: doodle(
+      fl('M110,200 L122,172 L252,42 L268,58 L138,188 Z'),
+      ln('M110,200 L122,172 L252,42 L268,58 L138,188 Z'), ln('M122,172 L138,188'), ln('M239,55 L255,71'),
+      ln('M110,200 C96,216 80,186 62,200 S30,216 16,198', 'rd'),
+      ln('M210,212 l8,-16 l8,16 l8,-16 l8,16 l8,-16'), ln('M200,216 H266')),
+    // a small robot, a sparking sky and a flask: the lab
+    axlab: doodle(
+      fl('M243.5,158 H294.5 L300,170 Q306,184 292,184 H246 Q232,184 238,170 Z'),
+      ln('M104,138 Q104,132 110,132 H210 Q216,132 216,138 V186 Q216,192 210,192 H110 Q104,192 104,186 Z'),
+      ln(arc(124, 200, 12)), ln(arc(196, 200, 12)), ln('M160,132 V104'), ln(arc(160, 96, 8)),
+      ln(arc(136, 158, 6)), ln(arc(184, 158, 6)), ln('M140,174 Q160,186 180,174'), ln('M104,150 H92 M216,150 H228'),
+      ln('M64,92 l16,12 M54,126 l20,2 M70,60 l12,18', 'rd'),
+      ln('M262,70 V118 L238,170 Q232,184 246,184 H292 Q306,184 300,170 L276,118 V70'), ln('M254,70 H284'),
+      ln(arc(266, 172, 4)), ln(arc(280, 166, 3))),
+    // a laptop in front of a skyline
+    mpcs: doodle(
+      fl('M40,110 h120 v70 h-120 z'),
+      ln('M40,110 h120 v70 h-120 z'), ln('M26,182 h148 l-10,12 h-128 z'), ln('M54,128 h50 M54,144 h76 M54,160 h38'), ln('M100,160 v10', 'rd'),
+      ln('M196,196 V70 h30 V196'), ln('M204,70 v-28 M218,70 v-20'), ln('M204,100 h14 M204,124 h14 M204,148 h14'),
+      ln('M240,196 L246,96 h22 L274,196'), ln('M280,196 V120 h20 V196'), ln('M14,196 H306')),
+    // balloons tethered to robots
+    buoyance: doodle(
+      fl(arc(70, 66, 26, 32), 'ink'), fl(arc(160, 44, 26, 32), 'ink'), fl(arc(250, 74, 26, 32), 'ink'),
+      ln(arc(70, 66, 26, 32)), ln(arc(160, 44, 26, 32)), ln(arc(250, 74, 26, 32)),
+      ln('M56,52 q4,-8 12,-10', 'sh'), ln('M146,30 q4,-8 12,-10', 'sh'), ln('M236,60 q4,-8 12,-10', 'sh'),
+      ln('M66,99 L70,106 L74,99'), ln('M156,77 L160,84 L164,77'), ln('M246,107 L250,114 L254,107'),
+      ln('M70,106 C58,126 84,146 70,174'), ln('M160,84 C148,110 172,140 160,174'), ln('M250,114 C238,136 262,152 250,174'),
+      ln('M52,174 h36 v16 h-36 z'), ln('M142,174 h36 v16 h-36 z'), ln('M232,174 h36 v16 h-36 z'),
+      ln(arc(60, 196, 5)), ln(arc(80, 196, 5)), ln(arc(150, 196, 5)), ln(arc(170, 196, 5)), ln(arc(240, 196, 5)), ln(arc(260, 196, 5)),
+      ln('M14,202 H306')),
+    // the glowing balloon, still going
+    now: doodle(
+      fl('M160,40 C196,40 206,76 192,102 C184,116 172,126 160,130 C148,126 136,116 128,102 C114,76 124,40 160,40 Z', 'hl'),
+      ln('M160,40 C196,40 206,76 192,102 C184,116 172,126 160,130 C148,126 136,116 128,102 C114,76 124,40 160,40 Z'), ln('M142,62 q6,-12 18,-14', 'sh2'),
+      rays(160, 84, 62, 80, true),
+      ln('M155,131 L160,139 L165,131'), ln('M160,139 C140,150 180,160 160,172 S150,182 160,190'),
+      ln('M134,190 h52 v18 h-52 z'), ln(arc(146, 214, 6)), ln(arc(174, 214, 6)), ln('M110,222 H210'))
+  };
+  const NOTES = { ug: 'CS + Econ, side by side', diver: 'the first one', penpal: 'after Diver Sim, before AxLab', axlab: 'advised by Prof. Nakagaki', mpcs: 'Pre-Doctoral, second year', buoyance: 'UIST 2025!', now: 'you are here' };
+  function doodleFor(id) {
+    const d = el('div', { class: 'rdoodle' });
+    d.insertAdjacentHTML('beforeend', DOODLES[id]);
+    d.querySelectorAll('path.ln').forEach((p, i) => p.style.setProperty('--i', Math.min(i, 16)));
+    d.append(el('p', { class: 'note', 'aria-hidden': 'true' }, curl('M54,34 C38,36 22,26 14,8 M6,16 L14,6 L22,14'), NOTES[id]));
+    return d;
+  }
+
   /* =====================================================================
      The seven stops, in the order things happened. Each is a RoverC-style robot on the rail, a balloon in the sky
      and a colour (the colours are the toio cube LEDs from design 5). The toio cube is a separate token on its own mat strip.
@@ -36,13 +122,14 @@
   let sel = 5;                                        // start on Buoyancé, the work I would show first
 
   function words(id) {
-    if (id === 'ug') return { title: 'Two degrees, in parallel', body: [el('p', { class: 'lead' }, `${bs.title} (${bs.note}) and ${ba.title}.`), el('p', null, 'I double majored in Computer Science and Economics.')] };
-    if (id === 'mpcs') return { title: 'Pre-Doctoral MPCS', body: [el('p', { class: 'lead' }, P.program + '.'), el('p', null, P.about[0])] };
-    if (id === 'axlab') return { title: P.lab, body: [el('p', { class: 'lead' }, P.labStory), el('p', null, P.about[1])] };
-    if (id === 'now') return { title: P.standing, body: [el('p', { class: 'lead' }, `Advised by ${P.advisor} at the ${P.lab}.`), el('p', null, P.about[2])] };
+    if (id === 'ug') return { title: 'Two degrees, in parallel', body: [el('p', { class: 'lead' }, hl(`${bs.title} (${bs.note}) and ${ba.title}.`, bs.note)), el('p', null, 'I double majored in Computer Science and Economics.')] };
+    if (id === 'mpcs') return { title: 'Pre-Doctoral MPCS', body: [el('p', { class: 'lead' }, hl(P.program + '.', 'Pre-Doctoral')), el('p', null, P.about[0])] };
+    if (id === 'axlab') return { title: P.lab, body: [el('p', { class: 'lead' }, hl(P.labStory, 'AxLab')), el('p', null, P.about[1])] };
+    if (id === 'now') return { title: P.standing, body: [el('p', { class: 'lead' }, hl(`Advised by ${P.advisor} at the ${P.lab}.`, P.advisor)), el('p', null, hl(P.about[2], 'ACM UIST 2025'))] };
     const p = project(id);
     return { title: p.title, body: [
-      el('p', { class: 'lead' }, p.summary), p.story && el('p', null, p.story),
+      el('p', { class: 'lead' }, id === 'buoyance' ? hl(p.summary, '20 m or more') : id === 'diver' ? hl(p.summary, 'virtual reality') : hl(p.summary, 'Actuated user interfaces')),
+      p.story && el('p', null, id === 'buoyance' ? hl(p.story, 'published during my master’s') : p.story),
       p.publication && el('p', { class: 'cite' }, `${p.publication.authors}. `, el('i', null, p.publication.title), `. ${p.publication.venue}.`),
       p.links && el('ul', { class: 'links', 'aria-label': p.title + ' links' }, p.links.map(l => el('li', null, link(l.url, l.label)))),
       p.tags && p.tags.length > 0 && el('ul', { class: 'chips-t', 'aria-label': 'Topics' }, p.tags.map(t => el('li', null, t)))
@@ -307,10 +394,17 @@
       return b;
     };
     reader.style.setProperty('--led', s.color);
+    const dood = doodleFor(s.id);
     reader.replaceChildren(...[
-      el('p', { class: 'ref' }, el('span', { class: 'dot', 'aria-hidden': 'true' }, String(k + 1)), `Stop ${k + 1} of ${STOPS.length} · ${s.era}`),
-      el('h2', null, w.title), w.body, s.id === 'buoyance' && photos(),
+      el('div', { class: 'rhead' },
+        el('div', { class: 'rtitle' },
+          el('p', { class: 'ref' }, el('span', { class: 'dot', 'aria-hidden': 'true' }, String(k + 1)), `Stop ${k + 1} of ${STOPS.length} · ${s.era}`),
+          el('h2', null, w.title),
+          s.id === 'axlab' && el('img', { class: 'sticker', src: ROOT + 'assets/img/axlab-logo-black.png', alt: 'AxLab logo', width: 3003, height: 1071, loading: 'lazy' })),
+        dood),
+      w.body, s.id === 'buoyance' && photos(),
       el('div', { class: 'steps' }, step(prev, 'prev'), step(next, 'next'))].flat(Infinity).filter(Boolean));
+    requestAnimationFrame(() => requestAnimationFrame(() => dood.classList.add('in')));   // the doodle draws itself
     Field.dirty();
     if (opts.say) say(`Stop ${k + 1} of ${STOPS.length}: ${s.name}.`);
   }
@@ -356,6 +450,125 @@
       el('a', { class: 'big', href: 'mailto:' + P.contact.email }, P.contact.email),
       el('ul', { class: 'links' }, el('li', null, link(P.contact.linkedin, 'LinkedIn')), el('li', null, link(P.contact.previousSite, 'Previous portfolio')))]);
   }));
+
+  /* =====================================================================
+     The dark room (design 12): the pins and robots sit in low light. A glowing balloon follows your pointer and lights what it passes;
+     the picked stop's robot, a faint light on every robot, and the portrait stay lit, and the reader, the balloons and the toio
+     strip are always fully lit. "Lights on" removes the darkness.
+     ===================================================================== */
+  const matEl = $('mat'), nightCv = $('night'), nctx = nightCv.getContext('2d'), lamp = $('lamp'), lightsBtn = $('lights');
+  const N = { dark: 1, darkTarget: 1, lx: -999, ly: -999, tx: -999, ty: -999, str: 0, strT: 0, sig: '', fade: 0 };
+  if (matchMedia('(prefers-contrast: more)').matches) N.dark = N.darkTarget = 0;
+  function setLights(on, announce = true) {
+    N.darkTarget = on ? 0 : 1;
+    lightsBtn.setAttribute('aria-pressed', String(on));
+    table.classList.toggle('dark', !on);
+    if (reduceMotion) N.dark = N.darkTarget;
+    if (announce) say(on ? 'Lights on.' : 'Lights low. Move the glowing balloon over the pins to light them.');
+  }
+  lightsBtn.addEventListener('click', () => setLights(lightsBtn.getAttribute('aria-pressed') !== 'true'));
+  setLights(N.darkTarget === 0, false);
+
+  function pointLight(e) {
+    const m = matEl.getBoundingClientRect();
+    N.tx = e.clientX - m.left; N.ty = e.clientY - m.top; N.strT = 1;
+    if (N.lx < -900) { N.lx = N.tx; N.ly = N.ty; }
+    clearTimeout(N.fade);
+    if (e.pointerType !== 'mouse') N.fade = setTimeout(() => { N.strT = 0; }, 2400);        // a finger leaves its light behind for a moment
+  }
+  table.addEventListener('pointermove', pointLight, { passive: true });
+  table.addEventListener('pointerdown', pointLight, { passive: true });
+  table.addEventListener('pointerleave', () => { N.strT = 0; });
+
+  const relTo = (m, e) => { const r = e.getBoundingClientRect(); return { x: r.left - m.left + r.width / 2, y: r.top - m.top + r.height / 2, w: r.width, h: r.height }; };
+  let lastN = performance.now();
+  function frameNight(now) {
+    requestAnimationFrame(frameNight);
+    const dt = Math.min(0.05, (now - lastN) / 1000); lastN = now;
+    N.dark += (N.darkTarget - N.dark) * Math.min(1, dt * 4); if (Math.abs(N.darkTarget - N.dark) < 0.01) N.dark = N.darkTarget;
+    const follow = reduceMotion ? 1 : Math.min(1, dt * 9);
+    N.lx += (N.tx - N.lx) * follow; N.ly += (N.ty - N.ly) * follow;
+    N.str += (N.strT - N.str) * Math.min(1, dt * 6); if (Math.abs(N.strT - N.str) < 0.01) N.str = N.strT;
+    const show = N.dark > 0.01, m = matEl.getBoundingClientRect();
+    nightCv.style.display = show ? 'block' : 'none';
+    lamp.style.opacity = show ? String((N.str * Math.min(1, N.dark * 1.4)).toFixed(2)) : '0';
+    if (!show) { N.sig = ''; return; }
+    lamp.style.transform = `translate(${(N.lx - 40).toFixed(1)}px, ${(N.ly - 100).toFixed(1)}px)`;
+    const w = Math.round(m.width), h = Math.round(m.height);
+    if (nightCv.width !== w || nightCv.height !== h) { nightCv.width = w; nightCv.height = h; N.sig = ''; }
+    const lights = [];
+    things.forEach((t, i) => { const q = relTo(m, t.cube); lights.push([q.x, q.y, i === sel ? 140 : 46, i === sel ? 1 : 0.6]); });
+    const pq = relTo(m, $('photo'));
+    if ($('portrait').dataset.view !== 'photo') lights.push([pq.x, pq.y, pq.w * 0.95, 0.62]);       // the portrait stays readable in low light
+    lights.push([N.lx, N.ly - 70, 200, N.str]);                                                      // centred on the glowing balloon above the pointer
+    const sig = [w, h, N.dark.toFixed(2), ...lights.map(l => l.map(v => Math.round(v * 2) / 2).join(','))].join('|');
+    if (sig === N.sig) return;
+    N.sig = sig;
+    nctx.globalCompositeOperation = 'source-over';
+    nctx.clearRect(0, 0, w, h);
+    nctx.fillStyle = `rgba(4, 5, 9, ${(0.86 * N.dark).toFixed(3)})`;
+    nctx.fillRect(0, 0, w, h);
+    nctx.globalCompositeOperation = 'destination-out';
+    lights.forEach(([x, y, r, s]) => {
+      if (s <= 0.01) return;
+      const g = nctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, `rgba(0,0,0,${s})`); g.addColorStop(0.5, `rgba(0,0,0,${(s * 0.62).toFixed(3)})`); g.addColorStop(1, 'rgba(0,0,0,0)');
+      nctx.fillStyle = g; nctx.fillRect(x - r, y - r, r * 2, r * 2);
+    });
+  }
+  requestAnimationFrame(frameNight);
+
+  /* =====================================================================
+     Doodle on the page (design 13). Strokes are SVG paths in table coordinates, kept in memory only:
+     nothing is stored, and a reload gives a clean page.
+     ===================================================================== */
+  const ink = $('ink'), penBtn = $('pen'), tray = $('tray'), undoBtn = $('undo'), clearBtn = $('clear');
+  let inkColour = 'navy', stroke = null;
+  const syncPen = () => { const none = !ink.querySelector('path'); undoBtn.disabled = none; clearBtn.disabled = none; };
+  function setPen(on) {
+    table.classList.toggle('pen-on', on);
+    penBtn.setAttribute('aria-pressed', String(on));
+    tray.hidden = !on;
+    say(on ? 'Doodle pen on. Drag on the workbench to draw. Press Escape or Done to stop. Balloons are paused while drawing.' : 'Doodle pen off.');
+  }
+  penBtn.addEventListener('click', () => setPen(penBtn.getAttribute('aria-pressed') !== 'true'));
+  $('done').addEventListener('click', () => { setPen(false); penBtn.focus(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && table.classList.contains('pen-on') && !dlg.open) { setPen(false); penBtn.focus(); } });
+  tray.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => {
+    inkColour = b.dataset.ink;
+    tray.querySelectorAll('.sw').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+  }));
+  undoBtn.addEventListener('click', () => { const last = ink.lastElementChild; if (last) last.remove(); syncPen(); say('Last stroke removed.'); });
+  clearBtn.addEventListener('click', () => { ink.replaceChildren(); syncPen(); say('All doodles cleared.'); });
+  const inkAt = e => { const r = ink.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  ink.addEventListener('pointerdown', e => {
+    if (!table.classList.contains('pen-on') || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    e.preventDefault();
+    ink.setPointerCapture(e.pointerId);
+    const p = inkAt(e), path = document.createElementNS(SVG_NS, 'path');
+    path.setAttribute('class', 's-' + inkColour);
+    path.setAttribute('d', `M${p.x.toFixed(1)},${p.y.toFixed(1)}l0.01,0`);       // a click leaves a dot
+    ink.append(path);
+    stroke = { path, last: p, d: `M${p.x.toFixed(1)},${p.y.toFixed(1)}` };
+    syncPen();
+  });
+  ink.addEventListener('pointermove', e => {
+    if (!stroke) return;
+    const p = inkAt(e), mid = { x: (stroke.last.x + p.x) / 2, y: (stroke.last.y + p.y) / 2 };
+    stroke.d += `Q${stroke.last.x.toFixed(1)},${stroke.last.y.toFixed(1)} ${mid.x.toFixed(1)},${mid.y.toFixed(1)}`;
+    stroke.last = p;
+    stroke.path.setAttribute('d', stroke.d);
+  });
+  const endStroke = () => {
+    if (!stroke) return;
+    stroke.path.setAttribute('d', stroke.d + `L${stroke.last.x.toFixed(1)},${stroke.last.y.toFixed(1)}`);
+    stroke = null;
+  };
+  ink.addEventListener('pointerup', endStroke); ink.addEventListener('pointercancel', endStroke);
+  syncPen();
+
+  // the name is underlined in red pen as the page opens
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll('.scribble').forEach(s => s.classList.add('in'))));
 
   select(sel);
   layout();

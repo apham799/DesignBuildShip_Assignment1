@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Workbench at Night</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. The workbench in low light: a pin display, a black balloon reeled in by a RoverC robot for each stop, a toio cube that drives to the stop you pick, a glowing balloon that lights the pins, and a sketchbook page for each stop. Seven stops, all in view at once.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#reader">Skip to the reader</a>
+
+  <!-- the hand-drawn wobble: a tiny displacement of the doodle lines; text is never filtered -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" id="lights" aria-pressed="false" title="Turn the lights on: no darkness over the pins">Lights on</button>
+      <button type="button" class="btn" id="pen" aria-pressed="false" aria-controls="tray"><span aria-hidden="true">&#9998;</span> Doodle</button>
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+    <div class="tray" id="tray" role="group" aria-label="Doodle tools" hidden>
+      <span class="tray-hint">Drag on the workbench to draw. Nothing is saved.</span>
+      <span class="swatches" role="group" aria-label="Pen colour">
+        <button type="button" class="sw sw-navy" data-ink="navy" aria-pressed="true" aria-label="Navy pen"></button>
+        <button type="button" class="sw sw-red" data-ink="red" aria-pressed="false" aria-label="Red pen"></button>
+        <button type="button" class="sw sw-hl" data-ink="hl" aria-pressed="false" aria-label="Yellow highlighter"></button>
+      </span>
+      <button type="button" class="btn small" id="undo" disabled>Undo</button>
+      <button type="button" class="btn small" id="clear" disabled>Clear</button>
+      <button type="button" class="btn small" id="done">Done</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="name">
+      <div>
+        <p class="kicker" id="kicker"></p>
+        <h1 id="name"></h1>
+        <svg class="scribble doodle" viewBox="0 0 420 26" aria-hidden="true" focusable="false"><path class="ln" pathLength="1" d="M6,16 C60,6 120,22 190,12 S320,8 414,14"/><path class="ln" pathLength="1" d="M40,22 C120,16 200,24 300,19"/></svg>
+      </div>
+      <div class="intro-text">
+        <p class="tagline" id="tagline"></p>
+        <p class="lab" id="lab"></p>
+      </div>
+    </section>
+
+    <section class="table" id="table" aria-label="The workbench: seven stops, each a balloon tethered to a RoverC robot">
+      <div class="sky" id="sky"></div>
+      <div class="mat" id="mat">
+        <canvas id="pins" aria-hidden="true"></canvas>
+        <canvas id="night" aria-hidden="true"></canvas>
+        <div class="lamp" id="lamp" aria-hidden="true"><span class="orb"></span></div>
+        <div class="rail" id="rail" aria-hidden="true"></div>
+        <div class="strip" id="strip" aria-hidden="true">
+          <span class="strip-tag">toio mat</span>
+          <div class="toio" id="toio"><span class="led"></span></div>
+          <p class="strip-id" id="stripId"></p>
+        </div>
+        <div class="deck">
+          <article class="reader" id="reader" tabindex="-1" aria-live="polite"></article>
+          <figure class="portrait" id="portrait" data-view="pins">
+            <img id="photo" alt="" width="800" height="1000">
+            <figcaption class="view" role="group" aria-label="Portrait view">
+              <button type="button" data-view="pins" aria-pressed="true">Pins</button>
+              <button type="button" data-view="photo" aria-pressed="false">Photo</button>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <svg class="tethers" id="tethers" aria-hidden="true"></svg>
+      <svg class="ink" id="ink" aria-hidden="true" focusable="false"></svg>
+    </section>
+
+    <nav class="chips" id="chips" aria-label="The seven stops, in order"></nav>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a workbench that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="portrait.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
