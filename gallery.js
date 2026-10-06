@@ -208,6 +208,18 @@ const ENTRIES = [
       'The numbered list beside the drawing is the main way in, and clicking a part or a numeral in the drawing does the same thing. The Buoyanc\u00e9 stop shows the four photos as Fig. 3A to 3D, left plain so they stay legible. The page starts exploded and snaps together, and it starts assembled for anyone who asks for less motion.'
     ],
     learned: 'In a patent the reference numerals are arbitrary labels, so which stop sits on which part of the rig is a visual device and not a claim about the work but can make it mildly confusing. I do a lot of 3D-modelling where a schematic view of the model might appear in a form like this, but it may not immediately make sense or even seen organized to a standard person visiting the website (though I`m not entirely show who outside of my field would visit the website).'
+  },
+  {
+    n: 16,
+    slug: '16-study-session',
+    title: 'The Study Session',
+    date: '2026-10-06',
+    concept: 'I tend to run user studies in my projects, a typical HCI method, the portfolio is a study a visitor can take part in: information and consent, seven tasks (one per stop), a one-question interview, a short questionnaire and a debrief. Finishing the tasks means reading through my portfolio and experiences.',
+    tried: [
+      'The flow is real form behaviour: three consent checkboxes unlock the rest, each task asks you to find something and then shows it, and a 7-point easy-to-difficult rating follows every task, as in a usability test. A step bar lets you jump between steps, and a skip link goes straight to the debrief for anyone who just wants the content.',
+      'The debrief turns what you entered into results: tasks completed, time to find each stop, mean ease and the questionnaire answers as bars, plus the About text and my contact details. Everything lives in memory only, nothing is stored or sent, and the page says so on the first screen.'
+    ],
+    learned: 'Using a method I know well as the interface made the content order easy to keep, but it risks feeling like a wizard that hides the portfolio behind consent, so the skip link and the unlocked step bar were added. Though, I do feel like the inital steps of going through my portofolio website might discourage visitors from visiting the page again in the future.'
   }
 ];
 

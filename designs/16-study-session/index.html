@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Study Session</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. The portfolio as a user study: consent, seven tasks, an interview question, a questionnaire and a debrief.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#flow">Skip to the session</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn ghost" data-open="about">About</button>
+      <button type="button" class="btn ghost" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page">
+      <aside class="info" aria-label="About this study">
+        <p class="eyebrow">Study session</p>
+        <h1 id="title"></h1>
+        <p class="tagline" id="tagline"></p>
+        <figure class="researcher" id="researcher"></figure>
+        <dl class="facts" id="facts"></dl>
+      </aside>
+
+      <div class="flow" id="flow" tabindex="-1">
+        <ol class="stepper" id="stepper" aria-label="Steps in this session"></ol>
+        <div id="stages"></div>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a study session that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
