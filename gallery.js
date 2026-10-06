@@ -196,6 +196,18 @@ const ENTRIES = [
       'Notes can be dragged by the strip at the top (or moved with the arrow keys), and only that strip, so a finger on the text still scrolls the page on a phone. Opening a note shows the full text as a big sticky note. A number dot on each note keeps the order things happened visible in every sort.'
     ],
     learned: 'The sorting is the content: putting a note in one cluster forces choices, such as Diver Sim going under virtual reality rather than HCI, so the topic groups are my reading of the tags and need your check. A bug taught me to keep layout widths in one place: a CSS variable redefined on each note silently overrode the width the layout code had measured, and it only showed on phones. However, I am starting to notice that as the UI themes become more scattered, the sense of visual chronological order begins to decrease.'
+  },
+  {
+    n: 15,
+    slug: '15-fig-1',
+    title: 'Fig. 1',
+    date: '2026-10-06',
+    concept: 'The page is a schematic-style drawing of a Buoyanc\u00e9 rig: a balloon on a tether, reeled in by a spool on a small wheeled robot. The seven stops are numbered parts of the drawing (10, 12, 14 ... 22, in the order they happened), and a toggle pulls the rig apart from Fig. 1 (assembled) into Fig. 2 (exploded).',
+    tried: [
+      'Black ink on white with one red hatch for whatever is selected, so the page looks nothing like the colourful ones before it. The drawing is plain SVG: every part is a group, and each group carries its own numeral and leader line, so when the parts are pulled apart in Fig. 2 the numerals travel with them. Dashed lines show the hidden light inside the balloon and where each loose part belongs.',
+      'The numbered list beside the drawing is the main way in, and clicking a part or a numeral in the drawing does the same thing. The Buoyanc\u00e9 stop shows the four photos as Fig. 3A to 3D, left plain so they stay legible. The page starts exploded and snaps together, and it starts assembled for anyone who asks for less motion.'
+    ],
+    learned: 'In a patent the reference numerals are arbitrary labels, so which stop sits on which part of the rig is a visual device and not a claim about the work but can make it mildly confusing. I do a lot of 3D-modelling where a schematic view of the model might appear in a form like this, but it may not immediately make sense or even seen organized to a standard person visiting the website (though I`m not entirely show who outside of my field would visit the website).'
   }
 ];
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — Fig. 1</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A patent-style line drawing of a balloon-and-robot rig: each numbered part is a stop on my path, in assembled and exploded views.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#parts">Skip to the numbered stops</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="titleblock" aria-labelledby="title">
+      <figure class="inventor" id="inventor"></figure>
+      <div class="who">
+        <p class="kicker">Read the numerals in order</p>
+        <h1 id="title"></h1>
+        <p class="tagline" id="tagline"></p>
+        <dl class="meta" id="meta"></dl>
+      </div>
+    </section>
+
+    <div class="sheet">
+      <section class="figure-col" aria-label="The drawing">
+        <div class="fig-tools" role="group" aria-label="View of the drawing">
+          <button type="button" class="view" data-view="assembled" aria-pressed="true">Fig. 1 <span>Assembled</span></button>
+          <button type="button" class="view" data-view="exploded" aria-pressed="false">Fig. 2 <span>Exploded</span></button>
+        </div>
+
+        <div class="fig-wrap" id="figWrap">
+          <svg id="fig" viewBox="0 0 760 990" role="img" aria-label="Line drawing of a balloon on a tether, reeled in by a spool on a small wheeled robot, shown assembled and exploded. Seven numbered parts stand for the seven stops, listed beside the drawing.">
+            <defs>
+              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#c43a1d" stroke-width="2.4" opacity="0.75"/></pattern>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9 z" fill="#111"/></marker>
+            </defs>
+
+            <g class="ground"><line class="g-line" x1="100" y1="840" x2="660" y2="840"/><path class="g-ticks" id="ticks"/></g>
+            <line class="axis" x1="380" y1="24" x2="380" y2="930"/>
+
+            <!-- 12: chassis -->
+            <g class="part" data-id="mid12" id="p12" style="--dx:0px;--dy:22px">
+              <g class="art">
+                <rect class="body" x="255" y="742" width="250" height="58" rx="6"/>
+                <line class="thin" x1="255" y1="754" x2="505" y2="754"/>
+                <circle class="thin" cx="272" cy="775" r="3.5"/><circle class="thin" cx="488" cy="775" r="3.5"/>
+                <rect class="thin" x="335" y="767" width="90" height="14" rx="7"/>
+              </g>
+              <g class="num"><circle class="hit" cx="592" cy="776" r="22"/><text x="592" y="784">12</text><path class="leader" d="M572,776 C548,774 528,772 508,772" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 14: drive motor -->
+            <g class="part" data-id="mid14" id="p14" style="--dx:26px;--dy:-18px">
+              <path class="pull" d="M459,711 L433,729"/>
+              <g class="art">
+                <line class="shaft" x1="385" y1="700" x2="426" y2="700"/>
+                <rect class="body" x="426" y="680" width="66" height="62" rx="4"/>
+                <line class="thin" x1="438" y1="696" x2="480" y2="696"/><line class="thin" x1="438" y1="706" x2="480" y2="706"/><line class="thin" x1="438" y1="716" x2="480" y2="716"/>
+                <rect class="body" x="492" y="698" width="12" height="26" rx="2"/>
+              </g>
+              <g class="num"><circle class="hit" cx="582" cy="702" r="22"/><text x="582" y="710">14</text><path class="leader" d="M562,706 C545,708 526,711 507,712" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 16: reel -->
+            <g class="part" data-id="mid16" id="p16" style="--dx:0px;--dy:-45px">
+              <g class="art">
+                <circle class="body" cx="380" cy="700" r="42"/>
+                <circle class="thin" cx="380" cy="700" r="34"/>
+                <circle class="thin" cx="380" cy="700" r="30"/><circle class="thin" cx="380" cy="700" r="26"/><circle class="thin" cx="380" cy="700" r="22"/><circle class="thin" cx="380" cy="700" r="18"/>
+                <circle class="body" cx="380" cy="700" r="12"/>
+                <circle class="thin" cx="380" cy="700" r="4"/>
+              </g>
+              <g class="num"><circle class="hit" cx="500" cy="620" r="22"/><text x="500" y="628">16</text><path class="leader" d="M486,634 C464,646 436,662 414,676" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 20: balloon and tether -->
+            <g class="part" data-id="top20" id="p20" style="--dx:0px;--dy:-85px">
+              <g class="art">
+                <line class="tether" x1="380" y1="407" x2="380" y2="484"/>
+                <line class="tether" x1="380" y1="516" x2="380" y2="658"/>
+                <path class="thin brk" d="M364,487 q16,-11 32,0"/><path class="thin brk" d="M364,513 q16,-11 32,0"/>
+                <line class="hit-line" x1="380" y1="407" x2="380" y2="658"/>
+                <ellipse class="body" cx="380" cy="262" rx="112" ry="122"/>
+                <ellipse class="thin" cx="380" cy="262" rx="38" ry="122"/>
+                <ellipse class="thin" cx="380" cy="262" rx="82" ry="122"/>
+                <path class="thin" d="M283.6,200 A96.4,20 0 0 0 476.4,200"/>
+                <path class="thin" d="M268,262 A112,22 0 0 0 492,262"/>
+                <path class="thin" d="M283.6,324 A96.4,20 0 0 0 476.4,324"/>
+                <path class="thin" d="M312,170 L338,150 M306,186 L346,158 M302,204 L352,170"/>
+                <path class="body" d="M372,384 L380,398 L388,384 Z"/>
+                <circle class="thin" cx="380" cy="403" r="4"/>
+              </g>
+              <g class="num"><circle class="hit" cx="168" cy="196" r="22"/><text x="168" y="204">20</text><path class="leader" d="M190,202 C214,208 244,218 274,227" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 22: light inside the balloon (hidden lines are dashed) -->
+            <g class="part" data-id="top22" id="p22" style="--dx:150px;--dy:210px">
+              <path class="pull" d="M380,262 L230,-33"/>
+              <g class="art">
+                <rect class="hit-rect" x="326" y="208" width="108" height="110"/>
+                <rect class="dash nofill" x="366" y="244" width="28" height="40" rx="6"/>
+                <ellipse class="dash nofill" cx="380" cy="244" rx="14" ry="5"/>
+                <path class="dash nofill" d="M410,264 L432,264 M401,285 L417,301 M380,294 L380,316 M359,285 L343,301 M350,264 L328,264 M359,243 L343,227 M380,234 L380,212 M401,243 L417,227"/>
+              </g>
+              <g class="num"><circle class="hit" cx="562" cy="236" r="22"/><text x="562" y="244">22</text><path class="leader" d="M541,246 C506,250 470,255 437,261" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 18: tether guide -->
+            <g class="part" data-id="mid18" id="p18" style="--dx:0px;--dy:-95px">
+              <path class="pull" d="M319,744 V839"/>
+              <g class="art">
+                <rect class="body" x="314" y="600" width="10" height="142"/>
+                <rect class="body" x="324" y="594" width="46" height="12"/>
+                <rect class="thin" x="306" y="738" width="26" height="6"/>
+                <circle class="nofill ring" cx="380" cy="600" r="12"/><circle class="thin nofill" cx="380" cy="600" r="7"/>
+              </g>
+              <g class="num"><circle class="hit" cx="236" cy="632" r="22"/><text x="236" y="640">18</text><path class="leader" d="M258,630 C277,628 296,625 312,622" marker-end="url(#arr)"/></g>
+            </g>
+
+            <!-- 10: wheels -->
+            <g class="part" data-id="low10" id="p10" style="--dx:0px;--dy:55px">
+              <path class="pull" d="M300,814 V759 M460,814 V759"/>
+              <g class="art">
+                <circle class="body" cx="300" cy="814" r="26"/><circle class="thin" cx="300" cy="814" r="19"/><circle class="thin" cx="300" cy="814" r="8"/>
+                <path class="thin" d="M300,806 V795 M300,822 V833 M292,814 H281 M308,814 H319"/>
+                <circle class="body" cx="460" cy="814" r="26"/><circle class="thin" cx="460" cy="814" r="19"/><circle class="thin" cx="460" cy="814" r="8"/>
+                <path class="thin" d="M460,806 V795 M460,822 V833 M452,814 H441 M468,814 H479"/>
+              </g>
+              <g class="num"><circle class="hit" cx="190" cy="872" r="22"/><text x="190" y="880">10</text><path class="leader" d="M210,866 C238,858 260,846 281,833" marker-end="url(#arr)"/></g>
+            </g>
+
+            <text class="fig-label" id="figLabel" x="380" y="972">FIG. 1</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="text-col">
+        <h2 class="list-title" id="listTitle">Reference numerals</h2>
+        <ol class="parts" id="parts" aria-labelledby="listTitle"></ol>
+        <article class="detail" id="detail" tabindex="-1" aria-live="polite"></article>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a line drawing with numbered parts that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
