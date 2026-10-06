@@ -184,6 +184,18 @@ const ENTRIES = [
       'The Doodle button turns on a pen, with navy, red and highlighter, Undo, Clear and Done. Strokes are SVG paths in page coordinates, which becomes more relevant with my more recent ongoing project, so they stay put as you scroll, and they live only in memory: nothing is saved and a reload gives a clean page. The pen tray hangs below the bar instead of pushing the page down, which would have slid the page out from under the strokes. Escape stops drawing.'
     ],
     learned: 'A hand-drawn look only works if the font is still easily readable: the handwriting font is for headings and notes, the body text is a normal serif, and the pen line runs in its own gutter so it never touches a word.'
+  },
+  {
+    n: 14,
+    slug: '14-affinity-wall',
+    title: 'The Affinity Wall',
+    date: '2026-10-06',
+    concept: 'The page is an affinity wall, the method I use to sort ideas when brainstorming. Every stop on my path is a sticky note on a whiteboard, and four buttons sort the same notes by time, topic or place. Cluster names are printed on black label tape, and the note colour is the topic.',
+    tried: [
+      'Thirteen notes: the two degrees, the three projects, the lab, the master\u2019s, now, and the four Buoyanc\u00e9 photos, which start as a pile tucked under the Buoyanc\u00e9 note and spread out when you click that note. The two degree notes overlap a little, since it was one double major. The notes start in a messy pile and then sort themselves by time. Time, Topic and Place slide the notes into clusters under label-tape headers, and Scatter throws them back onto the wall.',
+      'Notes can be dragged by the strip at the top (or moved with the arrow keys), and only that strip, so a finger on the text still scrolls the page on a phone. Opening a note shows the full text as a big sticky note. A number dot on each note keeps the order things happened visible in every sort.'
+    ],
+    learned: 'The sorting is the content: putting a note in one cluster forces choices, such as Diver Sim going under virtual reality rather than HCI, so the topic groups are my reading of the tags and need your check. A bug taught me to keep layout widths in one place: a CSS variable redefined on each note silently overrode the width the layout code had measured, and it only showed on phones. However, I am starting to notice that as the UI themes become more scattered, the sense of visual chronological order begins to decrease.'
   }
 ];
 
