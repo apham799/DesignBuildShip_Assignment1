@@ -317,6 +317,18 @@ const ENTRIES = [
       'The revision, after I looked at how two academic sites are sectioned: a short bio, then reverse-chronological lists with venue and author labels. New content from me: three exhibitions or demos (South Side Science Festival in 2024 and 2026, Ars Electronica Digital Art Festival in 2025) and the publications, grouped as published (Buoyanc\u00e9 at UIST 2025, first author), forthcoming (a second-author and a third-author paper) and under review for CHI 2027 (one first-author and one fourth-author paper). The unpublished papers have no titles yet because I have not given them. The About text has its own section, so the stops no longer repeat it, and the 2024 festival photo moved to Exhibitions.'
     ],
     learned: 'Moving the stops from a row at the top into the scroll made the page feel like a page, and adding named sections made it feel like a portfolio other people can actually use: a nav that always says where you are, and lists that are quick to scan. The playful parts (the mounted photo, the robot driving down the line, the toio at your current stop) survive because they sit in the margins and never replace the content. I first had a pin-display portrait in the hero, but I have not worked with pin displays myself, so it became a photo taped onto a board.'
+  },
+  {
+    n: 25,
+    slug: '25-swarm',
+    title: 'The Swarm',
+    date: '2026-10-06',
+    concept: 'Design 24 with a swarm in the background. My work is on multi-robot systems and swarm user interfaces, so RoverC robots, each reeling a black balloon as a nod to Buoyancé, and toio cubes wander the page like NPCs behind the content. They only go where nothing is, they never cover the page, and a "Pause Robots" button in the bottom-right corner stops them.',
+    tried: [
+      'The robots never obscure anything: whenever the page loads or changes size, it measures every line of text, image, card and button (and the line with its own robot, balloon and toio), turns that into a grid of free space, and the robots only plan routes and stop at spots where their whole footprint, balloon included, is free. A test samples every robot against every piece of content for 45 seconds on the desktop layout and 12 seconds on others, and found no overlap.',
+      'The swarm is two kinds of robot. The RoverC robots drive slowly with a balloon on a tether that leans back as they go, as in Buoyanc\u00e9. The toio cubes are untethered: they turn to face where they are going, then drive, which is the toio way of moving to a target, and that keeps the rule that a balloon is only ever tied to a RoverC. They take the toio LED colours. Nothing in the swarm is clickable, focusable or read aloud, and the Pause robots button works by mouse and keyboard, starts paused for reduced motion, and the swarm and its button are hidden on narrow screens (below 1040px, where the content fills the window and the corner is not free) and when printing.'
+    ],
+    learned: 'Liveliness works best when it asks nothing of the visitor: the page is exactly as readable with the swarm paused, and the only control is one button. The layer also has to be as tall as the whole page, or the robots further down are clipped.'
   }
 ];
 
