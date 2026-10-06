@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — Fidelity</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. One page, three levels of fidelity: a sketch, a wireframe and a polished page, the way a design develops. Scroll down to watch it get finished, or switch the whole page to one level.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#undergrad">Skip to the content</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="control" role="group" aria-label="Show the whole page as">
+      <span class="control-label" aria-hidden="true">Show as</span>
+      <button type="button" data-mode="design" aria-pressed="true" aria-label="As designed"><span class="long">As designed</span><span class="short">Designed</span></button>
+      <button type="button" data-mode="1" aria-pressed="false">Sketch</button>
+      <button type="button" data-mode="2" aria-pressed="false">Wireframe</button>
+      <button type="button" data-mode="3" aria-pressed="false">Polished</button>
+    </div>
+    <p class="readout" id="readout" aria-hidden="true"></p>
+  </header>
+
+  <main>
+    <section class="sec" id="intro" data-own="1" aria-labelledby="name">
+      <div class="wrap hero">
+        <div class="hero-copy">
+          <p class="kicker" id="kicker"></p>
+          <h1 id="name"></h1>
+          <p class="standing" id="standing"></p>
+          <p class="lab-line" id="labline"></p>
+          <p class="how" id="how"></p>
+        </div>
+        <figure class="portrait" id="portrait"></figure>
+      </div>
+    </section>
+
+    <section class="sec" id="undergrad" data-own="1" aria-labelledby="h-undergrad"><div class="wrap" id="undergrad-body"></div></section>
+    <section class="sec" id="lab" data-own="2" aria-labelledby="h-lab"><div class="wrap" id="lab-body"></div></section>
+    <section class="sec" id="buoyance" data-own="3" aria-labelledby="h-buoyance"><div class="wrap" id="buoyance-body"></div></section>
+    <section class="sec" id="now" data-own="3" aria-labelledby="h-now"><div class="wrap" id="now-body"></div></section>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page changes its look with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

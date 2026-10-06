@@ -257,6 +257,18 @@ const ENTRIES = [
       'Every panel shows a caption on the sheet and opens as a full scene (picture, full text, and for Buoyanc\u00e9 the paper links and photos) with previous and next buttons to step through them in order. The whole panel is the click target, and the panels draw in as you scroll (all visible at once for reduced motion). PenPal is a small panel, since it was a small class project.'
     ],
     learned: 'With every stop visible on one sheet, navigation is almost free, which is the lesson from the 3D chart where moving around was hard. The risk is the same as the sketchbook: it can read as just illustrations, so each scene is tied to something specific in my content. This method also brings in nods to common HCI practices while also maintaining an easy-to-understand visual chronological order unlike the other HCI practice themes.'
+  },
+  {
+    n: 20,
+    slug: '20-fidelity',
+    title: 'Fidelity',
+    date: '2026-10-06',
+    concept: 'A design starts as a sketch, becomes a wireframe and ends polished, so the page does too as you scroll. Along the theme of video-making I have taken the storyboarding prototyping process and combined it with the text and scroll style of Design 11, which I particularly liked other than the loud font that made sense for the print-them but did not necessarily suit my own tastes. The content and layout never change, only the finish, and a show as switch puts the whole page at one level.',
+    tried: [
+      'Every section carries its own fidelity level. The header shows the version of the section in view (v0.1 sketch, v0.5 wireframe, v1.0 polished), and each chapter has a tag with its level.',
+      'Sketch and wireframe photos are grayscale and the polished ones are in colour, but they are always real photos, never placeholders, and all text stays real and readable at every level. PenPal is a single small note in the sketch section. Nothing needs a pointer or a hover: the switch is four plain buttons.'
+    ],
+    learned: 'Using the design process as the interface turns the transitions into the content, and it is the easiest of the convergence ideas to navigate because the page is a plain scroll. It only works if the layout is identical across levels, which meant writing the components once and styling them three ways. The fonts cannot animate, so they swap at the start of the transition while everything else glides.'
   }
 ];
 
