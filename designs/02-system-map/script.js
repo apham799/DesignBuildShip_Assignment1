@@ -143,6 +143,22 @@
   }
   const chips = tags => tags && tags.length ? el('ul', { class: 'chips', 'aria-label': 'Topics' }, tags.map(t => el('li', null, t))) : null;
 
+  // Photos: the first spans the full width; the rest go into two columns, each into whichever column is currently
+  // shorter (using each photo's real proportions), so no blank gaps open up between them.
+  function photoBlocks(images) {
+    const fig = img => el('figure', null,
+      el('img', { src: ROOT + img.src, alt: img.alt, loading: 'lazy', width: img.w, height: img.h }),
+      el('figcaption', null, img.caption));
+    const [lead, ...rest] = images;
+    const cols = [[], []], heights = [0, 0];
+    rest.forEach(img => {
+      const c = heights[0] <= heights[1] ? 0 : 1;
+      cols[c].push(img);
+      heights[c] += (img.w && img.h ? img.h / img.w : 0.75) + 0.2;   // +0.2 allows for the caption and gap
+    });
+    return [fig(lead), rest.length > 0 && el('div', { class: 'photo-cols' }, cols.map(col => el('div', { class: 'photo-col' }, col.map(fig))))];
+  }
+
   function content(id) {
     if (id === 'bs' || id === 'ba') {
       const d = id === 'bs' ? bs : ba;
@@ -193,8 +209,7 @@
         p.publication && citation(p.publication),
         p.links && el('ul', { class: 'links', 'aria-label': p.title + ' links' }, p.links.map(l => el('li', null, link(l.url, l.label)))),
         chips(p.tags),
-        p.images.length > 0 && el('div', { class: 'photos' }, p.images.map(img =>
-          el('figure', null, el('img', { src: ROOT + img.src, alt: img.alt, loading: 'lazy' }), el('figcaption', null, img.caption))))
+        p.images.length > 0 && el('div', { class: 'photos' }, photoBlocks(p.images))
       ];
     }
     // overview (nothing selected)

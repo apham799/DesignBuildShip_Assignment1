@@ -58,6 +58,7 @@ README.md                             how to run and deploy
 - Keyboard accessible, visible focus states, semantic HTML, alt text on images, sufficient contrast.
 - Respect `prefers-reduced-motion`.
 - Works without a pointer. Don't make navigation depend only on hover or on hard-to-hit moving targets.
+- If a design has a `<noscript>` fallback that repeats the contact email, update it whenever `shared/content.js` changes (it cannot read the file).
 - Content stays identical across designs: name, tagline, About, the three projects (Buoyancé, PenPal, Augmented Diver Simulation) and contact details.
 
 ## Working conventions
@@ -72,3 +73,4 @@ README.md                             how to run and deploy
 
 - 01 `01-tethered`: done. Balloon-and-robot physics navigation, based on the Buoyancé project.
 - 02 `02-system-map`: done. The portfolio as a transit system map where x = time (undergrad on the left, master's on the right); stations open details in a side panel; Contact lives in the header and pass card, not on the map. Timeline facts (from the owner): Diver Sim (undergrad CS class project) -> PenPal (undergrad CS class project) -> joined AxLab (undergrad) -> Buoyancé started in AxLab as an undergrad, published during the master's; double major in CS (HCI specialization) and Economics. (A first attempt styled as a PDF viewer was rejected by the owner: designs must feel like a webpage, not an imitation of another document or app.)
+- 03 `03-pin-display`: done. Dark pin-display page: a fixed canvas grid of spring-loaded pins forms the owner's headshot (precomputed height map in `portrait.js`), reacts to the pointer, and morphs by section (portrait / terrain / flat). Typographic work index with `<details>` rows.

@@ -57,11 +57,12 @@ window.PORTFOLIO = {
         { label: 'Paper (PDF)', url: 'https://www.axlab.cs.uchicago.edu/_files/ugd/bef049_716f38437e8a40c0a5e56291ee8ff63a.pdf' }
       ],
       tags: ['Helium-inflated balloons', 'Mobile reeling robots', 'Mid-air tangible display', 'UIST 2025'],
+      // w and h are the photo's pixel size, so layouts can balance columns without waiting for images to load.
       images: [
-        { src: 'assets/img/buoyance-interaction.jpg', alt: 'Two people in a white gallery room among floating black balloons, each balloon paired with a small wheeled robot on the floor.', caption: 'Balloons and robots in the lab space.' },
-        { src: 'assets/img/buoyance-circle.jpg', alt: 'A person with arms outstretched, surrounded by a ring of floating black balloons between two camera stands.', caption: 'Standing inside a ring of balloons.' },
-        { src: 'assets/img/buoyance-light.jpg', alt: 'A person on a ladder in a dark room holding a glowing white balloon beneath a ceiling projector.', caption: 'A balloon as a display surface under a projector.' },
-        { src: 'assets/img/buoyance-demo.jpg', alt: 'Children and adults gathered around a demo table with black balloons and small robots at a public event.', caption: 'Showing it to the public.' }
+        { src: 'assets/img/buoyance-interaction.jpg', w: 1600, h: 899, alt: 'Two people in a white gallery room among floating black balloons, each balloon paired with a small wheeled robot on the floor.', caption: 'Balloons and robots in the lab space.' },
+        { src: 'assets/img/buoyance-circle.jpg', w: 1280, h: 495, alt: 'A person with arms outstretched, surrounded by a ring of floating black balloons between two camera stands.', caption: 'Standing inside a ring of balloons.' },
+        { src: 'assets/img/buoyance-light.jpg', w: 1280, h: 1126, alt: 'A person on a ladder in a dark room holding a glowing white balloon next to a ceiling projector.', caption: 'A glowing balloon used in an assistive room-configuration application.' },
+        { src: 'assets/img/buoyance-demo.jpg', w: 1280, h: 963, alt: 'Children and adults gathered around a demo table with black balloons and small robots at the SouthSide Science Festival.', caption: 'Public demo at the 2024 SouthSide Science Festival.' }
       ]
     },
     {
@@ -88,7 +89,7 @@ window.PORTFOLIO = {
   ],
 
   contact: {
-    email: 'apham766@gmail.com',
+    email: 'apham799@uchicago.edu',
     linkedin: 'https://www.linkedin.com/in/alan-pham-7798a3224',
     previousSite: 'https://sites.google.com/view/alanp-ortfolio/home'
   }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Alan Pham — Pin Display</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A portfolio on a pin display: press into it.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="portrait" data-view="pins">
+  <a class="skip" href="#work">Skip to work</a>
+
+  <canvas id="pins" aria-hidden="true"></canvas>
+  <figure class="portrait-photo" aria-hidden="true"><img id="portrait-photo" alt="" width="800" height="1000"></figure>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" data-mode="portrait" aria-labelledby="name">
+      <div class="hero-copy">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="name"></h1>
+        <p class="standing" id="standing"></p>
+        <p class="lab" id="lab"></p>
+        <p class="lead" id="lead"></p>
+        <div class="view" role="group" aria-label="Portrait view">
+          <button type="button" data-view="pins" aria-pressed="true">Pins</button>
+          <button type="button" data-view="photo" aria-pressed="false">Photo</button>
+        </div>
+        <p class="hint" aria-hidden="true"><span class="hint-pointer">Press into the pins. Click to send a ripple.</span><span class="hint-touch">Touch the pins.</span></p>
+      </div>
+    </section>
+
+    <section class="panel work" id="work" data-mode="terrain" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <h2 id="work-title">Work</h2>
+          <p>Newest first</p>
+        </header>
+        <div class="rows" id="rows"></div>
+      </div>
+    </section>
+
+    <section class="panel about" id="about" data-mode="flat" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <div class="about-copy" id="about-copy"></div>
+        <figure class="about-photo"><img id="about-img" alt="" width="800" height="1000" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="panel contact" id="contact" data-mode="flat" aria-labelledby="contact-title">
+      <div class="wrap" id="contact-copy"></div>
+    </section>
+  </main>
+
+  <noscript><p class="noscript">This page draws a pin display with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="portrait.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

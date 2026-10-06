@@ -27,19 +27,30 @@ const ENTRIES = [
     slug: '02-system-map',
     title: 'System Map',
     date: '2026-10-05',
-    concept: 'My path drawn as a transit system map, a nod to the Chicago L map on my T-shirt. Time runs left to right: my Computer Science and Economics degrees run side by side and merge into the master\'s, my two class projects (Diver Sim, then PenPal) sit on the CS line, and a research line branches off where I join AxLab and runs through the master\'s to Buoyancé and today.',
+    concept: 'My path drawn as a transit system map, a nod to the Chicago CTA map on my T-shirt in some Buoyancé photos. Time runs left to right: my Computer Science and Economics degrees run side by side and merge into the master\'s, my two class projects (Diver Sim, then PenPal) sit on the CS line, and a research line branches off where I join AxLab and runs through the master\'s to Buoyancé and today.',
     tried: [
-      '(draft) A first version laid the portfolio out as a research paper inside a PDF viewer. It looked clever, but it read as a document, not a webpage, so I dropped it.',
+      'A first version laid the portfolio out as a research paper inside a PDF viewer. It looked clever, but it read as a document, not a webpage, so I dropped it.',
       'A schematic map with 45° lines and interchange stations.',
-      '(draft) First the trains shuttled back and forth, and Contact sat on the rail, which made the order of events unclear. Now trains only run forward in time, the lines carry direction chevrons, an "Earlier → Later" axis sits under the map, and every stop has a small era label.',
-      '(draft) Re-ordered the stops to my real timeline (Diver Sim and PenPal as CS class projects, joining AxLab, then Buoyancé, published during the master\'s), put the class projects on the CS line instead of a separate projects line, and moved Contact off the rail into a button and the pass card.',
+      'First the trains shuttled back and forth, and Contact sat on the rail, which made the order of events unclear. Now trains only run forward in time, the lines carry direction chevrons, an "Earlier → Later" axis sits under the map, and every stop has a small era label.',
       'Clicking a station opens its details beside the map; "Next stop" buttons walk you along the route.',
-      'Clicking my name (in the top bar or on the pass card) turns the side panel into an About view, so the landing page needs no separate About page.',
+      'Clicking my name (in the top bar or on the pass card) turns the side panel into an About Me view, so the landing page needs no separate About page.',
       'On phones the map turns into a vertical route with the same stops and colours.'
     ],
-    learned: '(draft) A strong metaphor works best when it is also the navigation. Making the map the interface, instead of decorating a normal page with it, is what made it feel like a webpage.',
-    next: '(draft) Let the trains stop at the station you select, and add a printable "pocket map" version.',
-    tech: ['Inline SVG routes', 'SVG animateMotion', 'CSS container queries', 'Responsive map-to-list']
+    learned: 'A strong metaphor works best when it is also the navigation. Making the map the interface, instead of decorating a normal page with it, is what made it feel like a webpage.'
+  },
+  {
+    n: 3,
+    slug: '03-pin-display',
+    title: 'Pin Display',
+    date: '2026-10-06',
+    concept: 'A dark, tactile page built on a pin display, one kind of shape-changing display my lab works with that my advisor is quite known for. The whole background is a grid of about 16,000 "spring-loaded" pins. My headshot is the relief on the display, and the pins reshape as you scroll.',
+    tried: [
+      'A fixed grid of pins where every pin is a spring. The pointer presses into them and leaves an impression that slowly heals; a click sends a ripple.',
+      'My headshot turned into a "height map", so the pins "rise" to form my face. A Pins / Photo toggle swaps in the real photo.',
+      'The display morphs with the section you are in: portrait, then rolling terrain behind my work, then a calm plateau. The page also talks back, so opening a project row sends a ripple through the pins.',
+      'A typographic work index with expanding rows instead of cards, so the page does not fall back on a card grid.'
+    ],
+    learned: 'The first portrait was an unrecognisable blob. A tighter crop, more resolution and a little local contrast made it read more as a face.',
   }
 ];
 
