@@ -281,6 +281,18 @@ const ENTRIES = [
       'Going into a room opens its content as a lit room with the same text and photos as the other designs, with previous and next. Hanging signs face you so they read straight on from far away; the doors and signs are clicked by where they are drawn, because the browser would not hit-test small, far-away 3D elements reliably. The mouse also lets you look around a few degrees, but only slightly, so signs stay where you aim.'
     ],
     learned: 'This feels like the most immersive design so far, but it almost trades immersiveness for usability. The 3D effect while fun to interact with detracts from the glanceability and intuitiveness of how to navigate through the page. While this was a cool concept, I do no think it is very practical to move forward with.'
+  },
+  {
+    n: 22,
+    slug: '22-workbench',
+    title: 'The Workbench',
+    date: '2026-10-06',
+    concept: 'The first real convergence: a merge of designs 1, 3 and 5, the three platforms I work with. Everything fits on one screen. Seven black balloons from design 1 hang in a row, each tethered to a RoverC-style robot, the robot that really reels the balloons in Buoyanc\u00e9. The robots stand on the pin display from design 3, which also holds the reader and my portrait in pins, and a toio cube from design 5 drives along its own mat strip to whichever stop you pick. Pick a balloon (or a numbered chip) and the toio drives under that robot, the pins ripple, and the reader on the raised pin platform changes to that stop.',
+    tried: [
+      '(draft) All seven stops are visible at once, so you can glance at the whole path and read any stop in one click, which was the lesson from the 3D chart and the hallway. The balloons use design 1\u2019s physics (springs home, pushed away from the hand, a rope of fixed length to the robot). I first tethered them to toio cubes, but in Buoyanc\u00e9 the balloons are reeled in by RoverC robots, so that was misleading: the robots are now RoverC-style and the toio is a separate token. The pins push up a raised platform under the reader, a recess under each robot with a ring around it (taller for the one you picked) and the portrait.',
+      '(draft) The toio cube keeps its design 5 role, as a cube that moves to a place and reads it: it drives along a printed mat strip to the stop you pick, takes the stop\u2019s LED colour and shows its simulated position ID (using the toio mat\u2019s coordinate range). Clicking the strip also sends it. The pins answer every action: they ripple outward from the robot of the stop you pick, and from each robot in turn when the page opens. The portrait can switch between pins and the photo, and the pin grid is sized from the portrait (about 58 pins across, as in design 3) because at first the pins were so far apart that the face was unreadable. On phones the balloons carry numbers and a row of numbered chips sits above, so every stop is one tap away. PenPal is a smaller balloon, since it was a small class project.'
+    ],
+    learned: '(draft) Merging three designs only works if each one keeps a single job: balloons are the menu, the RoverC robots are what they are tethered to, the toio shows which stop is active, and the pins are the floor and the stage for the reader. Trying to give each platform its own content would have brought back the problem of hunting through the page. The pin canvas has to be measured from the layout (the reader, the cubes, the portrait) each time something moves, so the pins always match what is on top of them.'
   }
 ];
 

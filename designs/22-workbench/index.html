@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Workbench</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A workbench of the platforms I work with: a pin display for a mat, a black balloon reeled in by a RoverC robot for each stop, and a toio cube that drives to whichever stop you pick. Seven stops, all in view at once.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#reader">Skip to the reader</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="name">
+      <div>
+        <p class="kicker" id="kicker"></p>
+        <h1 id="name"></h1>
+      </div>
+      <div class="intro-text">
+        <p class="tagline" id="tagline"></p>
+        <p class="lab" id="lab"></p>
+      </div>
+    </section>
+
+    <section class="table" id="table" aria-label="The workbench: seven stops, each a balloon tethered to a RoverC robot">
+      <div class="sky" id="sky"></div>
+      <div class="mat" id="mat">
+        <canvas id="pins" aria-hidden="true"></canvas>
+        <div class="rail" id="rail" aria-hidden="true"></div>
+        <div class="strip" id="strip" aria-hidden="true">
+          <span class="strip-tag">toio mat</span>
+          <div class="toio" id="toio"><span class="led"></span></div>
+          <p class="strip-id" id="stripId"></p>
+        </div>
+        <div class="deck">
+          <article class="reader" id="reader" tabindex="-1" aria-live="polite"></article>
+          <figure class="portrait" id="portrait" data-view="pins">
+            <img id="photo" alt="" width="800" height="1000">
+            <figcaption class="view" role="group" aria-label="Portrait view">
+              <button type="button" data-view="pins" aria-pressed="true">Pins</button>
+              <button type="button" data-view="photo" aria-pressed="false">Photo</button>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <svg class="tethers" id="tethers" aria-hidden="true"></svg>
+    </section>
+
+    <nav class="chips" id="chips" aria-label="The seven stops, in order"></nav>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a workbench that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="portrait.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
