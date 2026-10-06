@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Alan Pham — The Dark Room</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A dark room lit by a glowing balloon: move the light over each object to find the stops on my path.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-lights="off">
+  <a class="skip" href="#screen">Skip to the screen</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" id="lights" aria-pressed="false" title="Turn the lights on: no darkness, everything visible">Lights on</button>
+      <button type="button" data-view="about" aria-pressed="false">About</button>
+      <button type="button" data-view="contact" aria-pressed="false">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="room" id="room" aria-label="A dark room. Each object is a stop on my path, earliest on the left. Move the light over an object to see it.">
+      <div class="wall" aria-hidden="true"></div>
+      <div class="floor" aria-hidden="true"></div>
+
+      <div class="who" id="who"></div>
+      <p class="hint" id="hint"></p>
+
+      <ol class="objects" id="objects" aria-label="Stops, earliest first"></ol>
+
+      <div class="night" aria-hidden="true"></div>
+      <div class="glow" aria-hidden="true"></div>
+      <div class="lamp" id="lamp" aria-hidden="true"><span class="orb"></span></div>
+      <span class="tip" id="tip" aria-hidden="true"></span>
+      <p class="arrow" aria-hidden="true"><span>earlier</span><i></i><span>later</span></p>
+    </section>
+
+    <section class="screen" id="screen" tabindex="-1" aria-label="The screen">
+      <div class="beam" aria-hidden="true"></div>
+      <article class="paper" id="paper"></article>
+    </section>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a dark room that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

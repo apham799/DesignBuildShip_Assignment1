@@ -157,6 +157,20 @@ const ENTRIES = [
       'A Swap inks button trades the two inks, recolouring the headlines, numbers and photos akin to a dark/light mode toggle. Black foil balloons, from Buoyancé, float through the pages as the recurring cut-out shape.'
     ],
     learned: 'A static layout can carry a whole page with type and print effects alone. The orange only reaches 3.2 to 1 against the paper, so it is used for giant numerals and headlines, and all small text stays the deep blue.'
+  },
+  {
+    n: 12,
+    slug: '12-dark-room',
+    title: 'The Dark Room',
+    date: '2026-10-06',
+    concept: 'The page is a dark room, like the photo where I hold a glowing balloon under a projector for the assistive room-configuration work. Your cursor becomes a glowing balloon, and the seven stops of my path are objects in the room, earliest on the left, that only show themselves when the light finds them (though there is an option to "turn on the lights" in the top right corner).',
+    tried: [
+      'The light is a glowing balloon that follows the pointer, and it lifts the darkness in a soft circle. Move it over an object and its number turns amber and its name lights up. A finger drag does the same on a phone.',
+      'The number, name and era under every object are always fully readable, because only the drawings are in the dark. A lights on switch removes the darkness completely, and the page starts with the lights on for anyone who needs/wants more contrast.',
+      'Before you touch anything, the light drifts once along the objects so you can see what it does. It stops the moment you move, and it never runs for people who ask for less motion.',
+      'Clicking an object (or tabbing to it, which also moves the light there) opens that stop on a bright projected screen below the room, with numbered stops, previous and next, and About and Contact.'
+    ],
+    learned: 'A dark, hidden-until-lit idea is risky for readability because it can be difficult to distinguish which items can be put in dark for the effect and which ones need to remain readble. Thus, the rule I followed was that the darkness may hide decoration but never text. Mixing up the stacking order put the darkness over the labels at first, which I caught by looking at the render.'
   }
 ];
 
