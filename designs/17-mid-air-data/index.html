@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — Mid-air Data</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A mid-air display: every stop on my path is a balloon in a 3D chart, placed by when it happened, its topic and its setting. Turn the chart, or read the table.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#table">Skip to the data table</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <img id="headshot" alt="" width="800" height="1000">
+      <div>
+        <p class="kicker">A mid-air display</p>
+        <h1 id="title"></h1>
+        <p class="tagline" id="tagline"></p>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="display" aria-label="The chart">
+        <div class="canvas-wrap">
+          <canvas id="cv" role="img" aria-label="A 3D chart: each of the eight stops on my path is a black balloon on a tether, standing over a small robot on the floor. Left to right is when it happened, front to back is topic, and height is setting. The same data is in the table."></canvas>
+        </div>
+        <div class="controls">
+          <div class="views" role="group" aria-label="Viewpoint">
+            <button type="button" data-view="3d">3D</button>
+            <button type="button" data-view="front">Front</button>
+            <button type="button" data-view="side">Side</button>
+            <button type="button" data-view="top">Top</button>
+          </div>
+          <label class="slide"><span>Turn</span><input type="range" id="yaw" min="-180" max="180" step="1" value="-35"></label>
+          <label class="slide"><span>Tilt</span><input type="range" id="pitch" min="0" max="90" step="1" value="22"></label>
+          <button type="button" class="spin" id="spin" aria-pressed="true">Spin</button>
+        </div>
+        <ul class="legend" id="legend" aria-label="Colour key"></ul>
+        <p class="hint">Drag the chart to turn it, or use Turn and Tilt. Tap a balloon to read about it.</p>
+      </section>
+
+      <section class="side">
+        <h2 class="side-title" id="tableTitle">The data</h2>
+        <table class="data" id="table" aria-labelledby="tableTitle">
+          <thead><tr><th scope="col">Stop</th><th scope="col">When</th><th scope="col">Topic</th><th scope="col">Setting</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <article class="detail" id="detail" tabindex="-1" aria-live="polite"></article>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a 3D chart that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

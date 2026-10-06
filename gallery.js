@@ -220,6 +220,18 @@ const ENTRIES = [
       'The debrief turns what you entered into results: tasks completed, time to find each stop, mean ease and the questionnaire answers as bars, plus the About text and my contact details. Everything lives in memory only, nothing is stored or sent, and the page says so on the first screen.'
     ],
     learned: 'Using a method I know well as the interface made the content order easy to keep, but it risks feeling like a wizard that hides the portfolio behind consent, so the skip link and the unlocked step bar were added. Though, I do feel like the inital steps of going through my portofolio website might discourage visitors from visiting the page again in the future.'
+  },
+  {
+    n: 17,
+    slug: '17-mid-air-data',
+    title: 'Mid-air Data',
+    date: '2026-10-06',
+    concept: 'Buoyanc\u00e9 can show abstract data in mid-air, so the page is a small mid-air display: a 3D chart where every stop on my path is a black balloon on a tether over a robot. Left to right is when it happened, front to back is the topic, and height is the setting (in class, in the lab, in the graduate program). You turn the chart, and a table holds the same data.',
+    tried: [
+      '(draft) A small 3D engine on a plain canvas: rotate, project with perspective and draw far to near. You can drag to turn it, use the Turn and Tilt sliders, or jump to a Front, Side or Top view, where the front reads like a timeline and the top shows the topic lanes. It turns slowly on its own until you touch it, and a Spin button stops that.',
+      '(draft) A table beside the chart lists the same eight points with the values for each axis, and it is the keyboard and screen reader way in. Picking a balloon or a row opens its description, with the Buoyanc\u00e9 photos plain below it. Labels are kept clear of the other balloons and each other.'
+    ],
+    learned: '(draft) The three axes are my own reading of the work, not facts: the topics follow each project\u2019s tags and the settings are where it happened, so they are worth a check. A 3D scene needs a plain, accessible twin, which is why the table matters. It also overlaps designs 01 and 06 in its balloons, so the display itself (the box, axes and table) has to carry the difference.'
   }
 ];
 
