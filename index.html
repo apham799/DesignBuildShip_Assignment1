@@ -26,8 +26,18 @@
     <p class="note">At least 20 of the 25 need to be unique among ~30 students, so I'm keeping each concept tied to something specific to me rather than a layout trend.</p>
   </section>
 
-  <main>
+  <div class="view-bar">
+    <h2 id="designs-title">Designs</h2>
+    <div class="seg" role="group" aria-label="Choose a view">
+      <button type="button" data-view="timeline" aria-pressed="true">Timeline</button>
+      <button type="button" data-view="cards" aria-pressed="false">Cards</button>
+    </div>
+    <p class="view-note" id="view-note">The story: what I tried and learned for each design, oldest first.</p>
+  </div>
+
+  <main id="main">
     <ol id="timeline" class="timeline" aria-label="Designs, oldest first"></ol>
+    <ul id="cards" class="cards" aria-label="All designs" hidden></ul>
   </main>
 
   <footer class="foot">

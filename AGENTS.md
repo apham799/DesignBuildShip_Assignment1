@@ -50,6 +50,7 @@ README.md                             how to run and deploy
 2. Load content with `<script src="../../shared/content.js"></script>` and read `window.PORTFOLIO`. Do not hard-code the owner's text in a design. Image paths in the content are relative to the site root, so prefix them with `../../`.
 3. Include a link back to the gallery: `<a href="../../index.html">`. Always link to explicit `index.html` files, never bare folders, so pages also work when opened straight from disk (a folder link shows a file listing).
 4. Add one entry to `ENTRIES` in `gallery.js`: number, slug, title, date, concept, what was tried, what was learned, what's next, and techniques.
+   That one entry drives both gallery views: the Timeline (notes) and the Cards (live previews, opened with `#cards` in the URL). Designs must render well when scaled into a 1440x900 iframe.
 5. Do not share CSS or JS between designs. Each folder must be self-contained so one design can't break another.
 
 ## Quality bar for every design
@@ -74,3 +75,4 @@ README.md                             how to run and deploy
 - 01 `01-tethered`: done. Balloon-and-robot physics navigation, based on the Buoyancé project.
 - 02 `02-system-map`: done. The portfolio as a transit system map where x = time (undergrad on the left, master's on the right); stations open details in a side panel; Contact lives in the header and pass card, not on the map. Timeline facts (from the owner): Diver Sim (undergrad CS class project) -> PenPal (undergrad CS class project) -> joined AxLab (undergrad) -> Buoyancé started in AxLab as an undergrad, published during the master's; double major in CS (HCI specialization) and Economics. (A first attempt styled as a PDF viewer was rejected by the owner: designs must feel like a webpage, not an imitation of another document or app.)
 - 03 `03-pin-display`: done. Dark pin-display page: a fixed canvas grid of spring-loaded pins forms the owner's headshot (precomputed height map in `portrait.js`), reacts to the pointer, and morphs by section (portrait / terrain / flat). Typographic work index with `<details>` rows.
+- 04 `04-reel`: done. Warm daylight clothesline page: vertical scroll reels a rope sideways (reel robot + drum), cards swing on clothespins; becomes a vertical rope on phones and short screens (< 900px wide or < 660px tall). Content cards are built from `shared/content.js`.

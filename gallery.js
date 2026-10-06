@@ -51,6 +51,19 @@ const ENTRIES = [
       'A typographic work index with expanding rows instead of cards, so the page does not fall back on a card grid.'
     ],
     learned: 'The first portrait was an unrecognisable blob. A tighter crop, more resolution and a little local contrast made it read more as a face.',
+  },
+  {
+    n: 4,
+    slug: '04-reel',
+    title: 'The Reel',
+    date: '2026-10-06',
+    concept: 'The opposite mood of the pin display: warm, daylight and paper and more akin to the bright, artistic nature of Buoyancé. The page is a clothesline. Buoyancé works by reeling tethers, so the content hangs from a rope and a little reel robot on the bottom winds it in as it scrolls.',
+    tried: [
+      'Scrolling down reels the rope sideways: the drum spins, the rope twists, and the cards naturally move with momentum on the reel.',
+      'Paper cards, polaroids and kraft tags make the content feel hung up and handled.',
+      'On phones the rope turns vertical, and tabbing to a card with the keyboard reels it into view.'
+    ],
+    learned: 'A metaphor from the research (reeling a tether) can drive the whole interaction, not just the artwork. Sideways motion from vertical scrolling needs extra care: focus, trackpad swipes and short screens all had to be handled.',
   }
 ];
 
@@ -110,11 +123,83 @@ if (ENTRIES.length < TOTAL) {
     h('article', null, h('p', { class: 'concept' }, 'Next design in progress…'))));
 }
 
-/* scale each 1440x900 iframe to fit its card */
+/* ---------- cards view: every design at a glance ---------- */
+const cardsEl = document.getElementById('cards');
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ENTRIES.forEach(e => {
+  const url = `designs/${e.slug}/index.html`;
+  // previews are live pages, so they load only while a card is near the screen (see the observer below)
+  const frame = h('iframe', { 'data-src': url, title: `Live preview of ${e.title}`, tabindex: '-1', scrolling: 'no' });
+  const preview = h('a', { class: 'preview', href: url, tabindex: '-1', 'aria-label': `Open design ${e.n}: ${e.title}` }, frame, h('span', { class: 'open', 'aria-hidden': 'true' }, 'Open design →'));
+  const notes = h('button', { type: 'button', class: 'notes' }, 'Read the notes');
+  notes.addEventListener('click', () => {
+    setView('timeline');
+    document.getElementById('design-' + e.n).scrollIntoView({ block: 'start' });
+  });
+  cardsEl.appendChild(h('li', { class: 'card', id: 'card-' + e.n },
+    preview,
+    h('div', { class: 'card-body' },
+      h('div', { class: 'card-head' },
+        h('span', { class: 'card-num', 'aria-hidden': 'true' }, String(e.n).padStart(2, '0')),
+        h('h3', null, e.title),
+        h('time', { datetime: e.date }, e.date)),
+      e.concept && h('p', { class: 'card-concept' }, e.concept),
+      h('div', { class: 'card-actions' }, h('a', { class: 'go', href: url }, 'Open design →'), notes))));
+});
+
+if (ENTRIES.length < TOTAL) {
+  cardsEl.appendChild(h('li', { class: 'card next' },
+    h('span', { class: 'card-num', 'aria-hidden': 'true' }, String(ENTRIES.length + 1).padStart(2, '0')),
+    h('p', { class: 'card-concept' }, 'Next design in progress…')));
+}
+
+// Keep at most the nearby previews running: load when close, unload when far, so many live pages never run at once.
+const mountObserver = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    const f = en.target.querySelector('iframe');
+    if (en.isIntersecting && f.dataset.live !== '1') { f.src = f.dataset.src; f.dataset.live = '1'; }
+    else if (!en.isIntersecting && f.dataset.live === '1') { f.src = 'about:blank'; f.dataset.live = '0'; }
+  });
+}, { rootMargin: '250px 0px' });
+cardsEl.querySelectorAll('.preview').forEach(p => mountObserver.observe(p));
+
+/* ---------- switching views (kept in the URL hash, since nothing may be stored) ---------- */
+const segButtons = [...document.querySelectorAll('.seg button')];
+const viewNote = document.getElementById('view-note');
+const NOTES = {
+  timeline: 'The story: what I tried and learned for each design, oldest first.',
+  cards: 'Every design at a glance. Click a card to open it live.'
+};
+
+function setView(view) {
+  view = view === 'cards' ? 'cards' : 'timeline';
+  document.body.dataset.view = view;
+  timeline.hidden = view !== 'timeline';
+  cardsEl.hidden = view !== 'cards';
+  segButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+  viewNote.textContent = NOTES[view];
+  history.replaceState(null, '', view === 'cards' ? '#cards' : location.pathname + location.search);
+  fitPreviews();
+}
+segButtons.forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+
+// in cards view the progress tracker jumps to the card instead of the timeline entry
+tracker.addEventListener('click', ev => {
+  const a = ev.target.closest('a');
+  if (!a || document.body.dataset.view !== 'cards') return;
+  ev.preventDefault();
+  const card = document.getElementById('card-' + a.getAttribute('href').replace('#design-', ''));
+  if (card) card.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+});
+
+/* scale each 1440x900 iframe to fit its card (hidden views have no width yet, so skip them) */
 function fitPreviews() {
   document.querySelectorAll('.preview').forEach(p => {
-    p.querySelector('iframe').style.transform = `scale(${p.clientWidth / 1440})`;
+    if (p.clientWidth) p.querySelector('iframe').style.transform = `scale(${p.clientWidth / 1440})`;
   });
 }
-fitPreviews();
 addEventListener('resize', fitPreviews);
+
+const startView = location.hash === '#cards' || new URLSearchParams(location.search).get('view') === 'cards' ? 'cards' : 'timeline';
+if (startView === 'cards') setView('cards'); else fitPreviews();

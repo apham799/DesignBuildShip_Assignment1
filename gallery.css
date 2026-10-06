@@ -74,9 +74,46 @@ time { font-size: .8rem; color: var(--muted); }
 
 .foot { padding: 32px 0 64px; font-size: .85rem; color: var(--muted); }
 
+/* ---------- view switch: timeline / cards ---------- */
+.view-bar { width: min(980px, 100% - 40px); margin: 0 auto 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.view-bar h2 { margin: 0; font-size: .85rem; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; }
+.seg { display: inline-flex; border: 1px solid var(--ink); border-radius: 99px; padding: 3px; }
+.seg button {
+  padding: .4em 1.2em; border: 0; border-radius: 99px; background: none; color: var(--ink); cursor: pointer;
+  font: inherit; font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.seg button:hover { background: rgba(0, 0, 0, .06); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button:focus-visible { outline: 3px solid var(--mark); outline-offset: 2px; }
+.view-note { margin: 0; flex-basis: 100%; font-size: .9rem; color: var(--muted); }
+@media (min-width: 760px) { .view-note { flex-basis: auto; } }
+
+/* ---------- cards: every design at a glance ---------- */
+body[data-view="cards"] main, body[data-view="cards"] .view-bar { width: min(1240px, 100% - 40px); }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 24px; }
+.cards[hidden], .timeline[hidden] { display: none; }
+.card { display: flex; flex-direction: column; background: #fbf9f3; border: 1px solid var(--ink); border-radius: 10px; overflow: hidden; scroll-margin-top: 16px; transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover, .card:focus-within { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(0, 0, 0, .45); }
+.card .preview { border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; }
+.card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 16px 18px 18px; }
+.card-head { display: flex; align-items: baseline; gap: 12px; }
+.card-num { font-family: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace; font-size: 1.1rem; color: var(--mark); }
+.card h3 { margin: 0; flex: 1; font-size: 1.35rem; font-weight: 400; letter-spacing: -.01em; }
+.card time { font-size: .75rem; }
+.card-concept { margin: 0; font-size: .92rem; line-height: 1.5; color: #3b3935; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.card-actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: .88rem; }
+.card-actions .go { padding: .45em 1em; border-radius: 99px; background: var(--ink); color: var(--paper); text-decoration: none; }
+.card-actions .go:hover { background: var(--mark); }
+.card-actions .notes { padding: 0; border: 0; background: none; color: var(--ink); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.card-actions .notes:hover { color: var(--mark); }
+.card-actions a:focus-visible, .card-actions button:focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; }
+.card.next { background: none; border-style: dashed; border-color: var(--line); box-shadow: none; transform: none; justify-content: center; align-items: center; text-align: center; min-height: 260px; padding: 24px; color: var(--muted); }
+.card.next .card-num { font-size: 2.4rem; color: var(--line); }
+
 @media (max-width: 560px) {
   .entry { grid-template-columns: 1fr; gap: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .preview .open { transition: none; }
+  .preview .open, .card { transition: none; }
+  .card:hover, .card:focus-within { transform: none; }
 }
