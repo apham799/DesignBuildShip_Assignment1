@@ -245,6 +245,18 @@ const ENTRIES = [
       'The balloons are the real links, not decoration: in the lab chapter they open the ACM paper, the lab project page and the PDF, and in the last chapter they are email, LinkedIn and my previous portfolio. They keep design 1\u2019s rules (springs home, pushed away from the hand, a rope of fixed length to a robot) and rise off their robots when you scroll to them. The header shows the four chapters, and PenPal is kept to a short note under undergrad on purpose.'
     ],
     learned: 'Letting scroll position pick the theme makes the page feel like it has chapters, but it only works if every chapter also reads fine without the effect, so all text sits on solid cards. Though the landing page looks similar, I do not think this is how I want to move forward with future convergent designs.'
+  },
+  {
+    n: 19,
+    slug: '19-storyboard',
+    title: 'The Storyboard',
+    date: '2026-10-06',
+    concept: 'HCI researchers sketch an interaction as a storyboard before building it, and as a research towards actuated-tangible user interfaces I often storyboard to plan out how the video demonstrating the system`s capabilities will go. Hence, the page is my path as a printed storyboard sheet: a title slate with my photo, then seven numbered panels, each with a drawn scene, a shot type (wide, point of view, insert, medium, establishing, close-up) and one line of caption. It reads left to right and top to bottom, in the order things happened.',
+    tried: [
+      'Flat marker drawings in grey, black line and one red pen for whatever the eye should follow, the way a storyboard artist works: a person between a code board and a chart for the two degrees, a headset under water for the VR project, a pen for PenPal as a small insert panel, a robot reeling a tether, a laptop in front of a skyline, balloons tethered to robots, and a glowing balloon with an arrow out of the frame for now.',
+      'Every panel shows a caption on the sheet and opens as a full scene (picture, full text, and for Buoyanc\u00e9 the paper links and photos) with previous and next buttons to step through them in order. The whole panel is the click target, and the panels draw in as you scroll (all visible at once for reduced motion). PenPal is a small panel, since it was a small class project.'
+    ],
+    learned: 'With every stop visible on one sheet, navigation is almost free, which is the lesson from the 3D chart where moving around was hard. The risk is the same as the sketchbook: it can read as just illustrations, so each scene is tied to something specific in my content. This method also brings in nods to common HCI practices while also maintaining an easy-to-understand visual chronological order unlike the other HCI practice themes.'
   }
 ];
 

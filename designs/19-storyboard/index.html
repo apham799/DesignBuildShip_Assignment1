@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Storyboard</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. My path as a seven-panel storyboard, the way HCI researchers sketch an interaction: read left to right, top to bottom.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#panels">Skip to the panels</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="sheet">
+      <header class="slate">
+        <figure class="lead" id="lead"></figure>
+        <div class="fields">
+          <p class="doc">Storyboard · sheet 1 of 1</p>
+          <h1 id="title"></h1>
+          <dl class="meta" id="meta"></dl>
+        </div>
+      </header>
+
+      <p class="how" id="how"></p>
+      <ol class="panels" id="panels" aria-label="The seven panels, in order"></ol>
+      <footer class="end" id="end"></footer>
+    </div>
+  </main>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet" id="dlgSheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a storyboard that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
