@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — Tethered</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A portfolio you navigate by nudging balloons.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#project-list">Skip to text links</a>
+
+  <main id="stage" class="stage">
+    <header class="title">
+      <h1 id="name">Alan Pham</h1>
+      <p id="status">HCI researcher</p>
+      <p id="hint" class="hint" aria-hidden="true">Nudge a balloon, then open it.</p>
+    </header>
+
+    <figure class="portrait">
+      <img id="headshot" width="800" height="1000" alt="">
+    </figure>
+
+    <svg id="tethers" class="tethers" aria-hidden="true"></svg>
+
+    <nav class="textnav" aria-label="Sections">
+      <ul id="project-list"></ul>
+      <a class="back" href="../../index.html">&larr; All designs</a>
+    </nav>
+  </main>
+
+  <dialog id="panel" class="panel" aria-labelledby="panel-title">
+    <button class="panel-close" type="button" aria-label="Close">&times;</button>
+    <div id="panel-body"></div>
+  </dialog>
+
+  <noscript><p class="noscript">This page uses JavaScript for its floating navigation. Contact: apham766@gmail.com</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

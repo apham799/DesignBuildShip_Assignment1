@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Log — 25 ways to say "Alan Pham"</title>
+  <meta name="description" content="A running log of 25 homepage designs for one portfolio, built with plain HTML, CSS and JavaScript.">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="masthead">
+    <p class="eyebrow">Design Build Ship · Assignment 1</p>
+    <h1>25 ways to say <span>&ldquo;Alan Pham&rdquo;</span></h1>
+    <p class="lede">One portfolio landing page, designed over and over. The words never change (they live in <code>shared/content.js</code>), so every difference you see is a design decision. This page is the lab notebook: what I tried, why, and what I'd do next.</p>
+    <ul class="rules" aria-label="Constraints">
+      <li>HTML + CSS + optional JS</li>
+      <li>No frameworks</li>
+      <li>No external APIs</li>
+      <li>No data storage</li>
+    </ul>
+  </header>
+
+  <section class="progress" aria-labelledby="progress-title">
+    <h2 id="progress-title">Progress <span id="count"></span></h2>
+    <ol id="tracker" class="tracker"></ol>
+    <p class="note">At least 20 of the 25 need to be unique among ~30 students, so I'm keeping each concept tied to something specific to me rather than a layout trend.</p>
+  </section>
+
+  <main>
+    <ol id="timeline" class="timeline" aria-label="Designs, oldest first"></ol>
+  </main>
+
+  <footer class="foot">
+    <p>Plain files, hosted on Vercel. Nothing here talks to a server.</p>
+  </footer>
+
+  <script src="gallery.js"></script>
+</body>
+</html>

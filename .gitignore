@@ -1,0 +1,13 @@
+# local debugging
+ErrorScreenshots/
+
+# 6000x4000 original; the site uses assets/img/headshot.jpg (a 100 KB crop of it)
+assets/img/WinterGala.jpg
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.vercel/
+node_modules/
