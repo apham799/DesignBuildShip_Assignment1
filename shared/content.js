@@ -88,6 +88,11 @@ window.PORTFOLIO = {
     }
   ],
 
+  // Said by Alan (2026-10-06). Add what he actually builds with toio here once he describes it.
+  toio: {
+    statement: 'I also work with Sony toio.'
+  },
+
   contact: {
     email: 'apham799@uchicago.edu',
     linkedin: 'https://www.linkedin.com/in/alan-pham-7798a3224',

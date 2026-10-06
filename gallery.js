@@ -64,6 +64,19 @@ const ENTRIES = [
       'On phones the rope turns vertical, and tabbing to a card with the keyboard reels it into view.'
     ],
     learned: 'A metaphor from the research (reeling a tether) can drive the whole interaction, not just the artwork. Sideways motion from vertical scrolling needs extra care: focus, trackpad swipes and short screens all had to be handled.',
+  },
+  {
+    n: 5,
+    slug: '05-toio-mat',
+    title: 'The toio Mat',
+    date: '2026-10-06',
+    concept: 'My portfolio dressed in the interface of Sony toio, the tiny cube robots I also work with. The page is a simulated toio play mat: my sections are printed cards on the mat, and three cubes read them the way a real toio reads its mat. Bold cobalt blue and white, like a toy.',
+    tried: [
+      'Click a card and a cube turns, drives over and reads it (a nod to the target-position control a real toio has). Or pick a cube up and put it on a card yourself (A slight nod to my most recent in-progress project).',
+      'A live readout shows what a toio would report: Position ID (x, y, angle), "position ID missed" when lifted, collision, double-tap, posture and shake level, using the names and ranges from the public toio spec.',
+      'A guided tour sends a cube past every card in order. Cubes are keyboard-reachable too (arrow keys nudge, Enter double-taps).'
+    ],
+    learned: 'A theme works best as the UI around my own content',
   }
 ];
 

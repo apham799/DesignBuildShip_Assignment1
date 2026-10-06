@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — The toio Mat</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. A portfolio on a toio-style play mat: move the cubes, read the cards.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#reader">Skip to the content panel</a>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+  </header>
+
+  <main>
+    <div class="stage">
+      <section class="intro" aria-labelledby="name">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="name"></h1>
+        <p class="standing" id="standing"></p>
+        <p class="lab" id="lab"></p>
+      </section>
+
+      <section class="play" aria-label="The toio play mat">
+        <div class="mat-wrap">
+          <div class="mat" id="mat" role="group" aria-label="Simulated toio mat. Click a card to send a cube to it, or drag a cube onto a card to read it."></div>
+          <p class="mat-label" aria-hidden="true">A simulated toio mat</p>
+        </div>
+        <div class="controls" role="group" aria-label="Cube controls">
+          <button type="button" id="btn-tour">Take the tour</button>
+          <button type="button" id="btn-home">Send cubes home</button>
+        </div>
+        <div class="console" aria-labelledby="console-title">
+          <p class="console-title" id="console-title">Cube readout <span id="console-who"></span></p>
+          <pre id="console-out" aria-live="off"></pre>
+        </div>
+      </section>
+
+      <section class="reader" id="reader" tabindex="-1" aria-label="Card contents">
+        <div id="reader-body"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="foot"><a href="../../index.html">&larr; Back to the design log</a></footer>
+
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page simulates a toio mat with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
