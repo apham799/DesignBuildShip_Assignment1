@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — System Map</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, drawn as a transit system map: pick a station to see where the research line goes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#detail">Skip to station details</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <p class="bar-title"><button type="button" class="name-btn" data-open="about" aria-controls="detail" aria-pressed="false" title="About Alan Pham">Alan Pham</button> <span>System Map</span></p>
+    <button type="button" class="bar-contact" data-open="contact" aria-controls="detail" aria-pressed="false">Contact</button>
+  </header>
+
+  <main class="stage">
+    <section class="mapwrap" aria-label="System map. Each station opens its details.">
+      <div class="map" id="map">
+        <svg id="routes" class="routes" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"></svg>
+        <ol class="stations" id="stations"></ol>
+        <ul class="legend" id="legend" aria-label="Line key"></ul>
+      </div>
+    </section>
+
+    <aside class="panel" id="panel">
+      <div class="card" id="card"></div>
+      <div class="detail" id="detail" role="region" aria-label="Station details" tabindex="-1"></div>
+    </aside>
+  </main>
+
+  <noscript><p class="noscript">This page draws its map with JavaScript. Contact: apham766@gmail.com</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

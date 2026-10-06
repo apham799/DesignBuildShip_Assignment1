@@ -71,3 +71,4 @@ README.md                             how to run and deploy
 ## Progress
 
 - 01 `01-tethered`: done. Balloon-and-robot physics navigation, based on the Buoyancé project.
+- 02 `02-system-map`: done. The portfolio as a transit system map where x = time (undergrad on the left, master's on the right); stations open details in a side panel; Contact lives in the header and pass card, not on the map. Timeline facts (from the owner): Diver Sim (undergrad CS class project) -> PenPal (undergrad CS class project) -> joined AxLab (undergrad) -> Buoyancé started in AxLab as an undergrad, published during the master's; double major in CS (HCI specialization) and Economics. (A first attempt styled as a PDF viewer was rejected by the owner: designs must feel like a webpage, not an imitation of another document or app.)
