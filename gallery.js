@@ -77,6 +77,23 @@ const ENTRIES = [
       'A guided tour sends a cube past every card in order. Cubes are keyboard-reachable too (arrow keys nudge, Enter double-taps).'
     ],
     learned: 'A theme works best as the UI around my own content',
+  },
+  {
+    n: 6,
+    slug: '06-skyline',
+    title: 'Skyline',
+    date: '2026-10-06',
+    concept: '(draft) A merge of two earlier ideas: the Chicago transit map from design 02 and the balloons-and-robots world of Buoyancé. The map is printed on the floor of a lab, tilted in 3D, and every stop is a black balloon tethered to its spot. The height of each balloon says when that stop happened, so the map becomes a rising skyline (a small Chicago pun).',
+    tried: [
+      '(draft) Real 3D with CSS transforms: the floor tilts a little as the pointer moves, and the balloons stay upright and facing you.',
+      '(draft) Balloon height encodes time, the same idea as Buoyancé showing abstract data in 3D space. Selecting a stop reels its balloon higher.',
+      '(draft) Small RoverC-style robots drive each line one way, forward in time, towing coloured balloons whose tethers are reeled out as they go. They glide along the diagonals without turning, like a mecanum-wheel robot.',
+      '(draft) Click a stop and the robot whose line serves it drives there and parks on it, while that balloon is reeled higher. Pick another stop (or click the same one again) and the robot goes back to patrolling.',
+      '(draft) On phones the room goes on top and a plain list of stops sits underneath; there is a pause button for the robots, and with reduced motion they park.'
+    ],
+    learned: '(draft) Merging two ideas worked best when each kept its job: the map says where and in what order, the balloons say how late. Putting the data in the height made the 3D feel meaningful, not decorative.',
+    next: '(draft) Let a robot drive to the stop you select and reel its balloon up itself, and let the balloons sway with the robots passing underneath.',
+    tech: ['CSS 3D transforms', 'Billboarded balloons', 'SVG paths on a tilted plane', 'Per-frame tether reeling']
   }
 ];
 
