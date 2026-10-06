@@ -123,17 +123,28 @@ const ENTRIES = [
     slug: '09-card-catalog',
     title: 'Card Catalog',
     date: '2026-10-06',
-    concept: '(draft) My portfolio filed in a library card catalog, a nod to Chicago and UChicago libraries and to my field, since a catalog is a classic information interface. Each stop on my path is a typed index card in a drawer, filed in the order it happened, with an oak cabinet of closed drawers above it.',
+    concept: 'My portfolio filed in a library card catalog, a nod to Chicago and UChicago libraries and to my field, since a catalog is a classic information interface. Each stop on the path is a typed index card in a drawer, filed in the order it happened, with an oak cabinet of closed drawers above it.',
     tried: [
-      '(draft) One card is pulled up to read at a time and the others stay filed as tabbed edges. Each card has a call number, a main entry, a typed title and imprint, notes, and tracings at the bottom (subjects, then added entries such as my co-authors), like a real catalog card.',
-      '(draft) First the cabinet face had twelve drawers and only two did anything, which was confusing. Now every drawer works: six subject drawers (Computer science, Economics, HCI, Actuated UI, Virtual reality, Balloons and robots) light up the cards filed under that subject and fade the rest, like the subject drawers of a real catalog, and About and Contact open as pulled cards.',
-      '(draft) The call numbers (HCI 1 to HCI 7) are a design device, not a real library scheme. Numbers and staggered colour tabs show the order, and the photos are pasted onto the card like prints.',
-      '(draft) Arrow keys, Home and End flip through the drawer, and it becomes a single column on phones.'
+      'One card is pulled up to be read at a time and the others stay filed as tabbed edges. Each card has a call number, a main entry, a typed title and imprint, notes, and tracings at the bottom (subjects, then added entries such as my co-authors), like a real catalog card.',
+      'First the cabinet face had twelve drawers and only two did anything, which was confusing. Now every drawer works: six subject drawers (Computer science, Economics, HCI, Actuated UI, Virtual reality, Balloons and robots) light up the cards filed under that subject and fade the rest, like the subject drawers of a real catalog, and About and Contact open as pulled cards.',
+      'The call numbers (HCI 1 to HCI 7) are a design device, not a real library scheme. Numbers and staggered colour tabs show the order, and the photos are pasted onto the card like prints.',
+      'Arrow keys, Home and End flip through the drawer, and it becomes a single column on phones.'
     ],
-    learned: '(draft) A warm, quiet, text-first design is a useful contrast with the interactive ones. The card format brought its own structure for free, and it needed no invented facts: the tracings and the subject drawers reuse the topics and co-authors I already have. Decoration that looks clickable but is not makes people hesitate, so every drawer should do something.',
-    next: '(draft) Make each card tip forward as it opens, and slide the drawer out when the page loads.',
-    tech: ['CSS accordion with grid rows', 'Ruled-paper backgrounds', 'Native dialog', 'Generated call numbers']
-  }
+    learned: 'A warm, quiet, text-first design is a useful contrast with the interactive ones. The card format brought its own structure for free, and it needed no invented facts: the tracings and the subject drawers reuse the topics and co-authors I already have. Decoration that looks clickable but is not makes people hesitate, so every drawer should do something.'
+  },
+  {
+    n: 10,
+    slug: '10-control-surface',
+    title: 'Control Surface',
+    date: '2026-10-06',
+    concept: 'My portfolio as a classic tangible control surface: a matte instrument panel with a long time fader, seven channel strips, knobs and switches, and a display. It echoes my research on actuated-tangible user interfaces, drawing from a classical example of a tangible interface.',
+    tried: [
+      'A big time fader runs from Earlier to Later with seven numbered marks, one for each stop on my path. Drag it and the display updates live as the cap passes each channel; let go and it snaps into place. The channel strips below are a second way in, with meters that rise as the stops get later.',
+      'The knob changes the text size, the Panel switch flips light and dark, the Motion switch turns the animation off, and the About and Contact buttons open panels on the display.',
+      'The controls are built on real form inputs and buttons, so the keyboard works (arrows, Home and End on the fader and knob), and the panel follows the system light or dark setting.',
+      'The content stays plain readable text on the display, not a drawing of a device. On phones the display comes first, then the fader, then the channels, then the settings.'
+    ],
+    learned: 'The agent might be good at coming up with designs but can be poor with small little UI details that can make the interface hard/confusing to operate. There are also some risks of imitating a medium as some require a level of expertise and sometimes there needs to be a compromise between realness and usability.'}
 ];
 
 /* ---------- render ---------- */

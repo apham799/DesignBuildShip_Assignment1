@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alan Pham — Control Surface</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago, as a control surface: slide the time fader or press a channel to move through my path.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-panel="light" data-motion="on">
+  <a class="skip" href="#screen-body">Skip to the display</a>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+  </header>
+
+  <main class="desk">
+    <div class="plate">
+      <div class="head" id="head"></div>
+
+      <div class="deck">
+        <section class="screen" aria-label="Display">
+          <div class="lcd-bar" id="lcd-bar" aria-hidden="true"></div>
+          <div class="lcd" id="screen-body" role="region" aria-label="Selected stop" tabindex="-1"></div>
+        </section>
+
+        <aside class="module" aria-label="Settings and panels">
+          <p class="silk">Settings</p>
+          <div class="knob-wrap">
+            <div class="knob-scale" aria-hidden="true">
+              <i data-size="0"></i><i data-size="1"></i><i data-size="2"></i>
+              <button type="button" tabindex="-1" data-size="0">S</button><button type="button" tabindex="-1" data-size="1">M</button><button type="button" tabindex="-1" data-size="2">L</button>
+            </div>
+            <div class="knob" id="knob-text" role="slider" tabindex="0" aria-label="Text size" aria-valuemin="0" aria-valuemax="2" aria-valuenow="1" aria-valuetext="Medium">
+              <span class="cap"><i></i></span>
+            </div>
+            <p class="silk small">Text size</p>
+          </div>
+          <div class="switches">
+            <div class="sw">
+              <button type="button" class="toggle" id="sw-panel" role="switch" aria-checked="false" aria-label="Dark panel"><span></span></button>
+              <p class="silk small">Panel<br><b>Light &middot; Dark</b></p>
+            </div>
+            <div class="sw">
+              <button type="button" class="toggle" id="sw-motion" role="switch" aria-checked="true" aria-label="Motion"><span></span></button>
+              <p class="silk small">Motion<br><b>Off &middot; On</b></p>
+            </div>
+          </div>
+          <p class="silk">Panels</p>
+          <div class="push">
+            <button type="button" id="btn-about" aria-pressed="false"><i aria-hidden="true"></i><span>About</span></button>
+            <button type="button" id="btn-contact" aria-pressed="false"><i aria-hidden="true"></i><span>Contact</span></button>
+          </div>
+        </aside>
+      </div>
+
+      <section class="faderbar" aria-label="Time fader">
+        <div class="axis" aria-hidden="true"><span>&larr; Earlier</span><b>Time</b><span>Later &rarr;</span></div>
+        <div class="rail">
+          <input type="range" class="fader" id="fader" min="0" max="6" step="any" value="0" aria-label="Time: slide through my path, from earliest to latest">
+          <div class="ticks" id="ticks" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <ol class="strips" id="strips" aria-label="Channels, earliest first"></ol>
+    </div>
+  </main>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a control surface that needs JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
