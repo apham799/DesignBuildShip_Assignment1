@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Alan Pham — The Lab Hallway</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. Walk down a lab hallway: scroll to walk, doors swing open as you pass, and each door is a stop on my path.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#directory">Skip to the directory of rooms</a>
+
+  <header class="bar">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <div class="bar-actions">
+      <button type="button" class="btn" data-open="about">About</button>
+      <button type="button" class="btn" data-open="contact">Contact</button>
+    </div>
+  </header>
+
+  <div class="walk" id="walk">
+    <div class="stage" id="stage">
+      <div class="viewport" id="viewport" aria-hidden="true">
+        <div class="rig" id="rig"><div class="world" id="world"></div></div>
+        <div class="fog"></div>
+      </div>
+
+      <section class="intro" id="intro" aria-labelledby="name">
+        <figure class="badge" id="badge"></figure>
+        <div>
+          <p class="kicker" id="kicker"></p>
+          <h1 id="name"></h1>
+          <p class="tagline" id="tagline"></p>
+          <p class="lab" id="lab"></p>
+          <p class="hint"><span class="hint-pointer">Scroll to walk down the hall. Doors open as you pass; click a sign or door to go in.</span><span class="hint-touch">Swipe to walk down the hall. Tap a sign or door to go in.</span></p>
+        </div>
+      </section>
+
+      <div class="hud" id="hud">
+        <p class="hud-room" id="hudRoom"></p>
+        <button type="button" class="enter" id="enter"></button>
+      </div>
+
+      <nav class="directory" id="directory" aria-label="Directory of rooms">
+        <p class="dir-title">Directory</p>
+        <ol id="dirList"></ol>
+      </nav>
+
+      <section class="end-card" id="endCard" aria-labelledby="end-title">
+        <h2 id="end-title">End of the hall</h2>
+        <p>Thanks for walking through. Say hello:</p>
+        <a class="mail" id="endMail"></a>
+        <p class="end-links" id="endLinks"></p>
+        <button type="button" class="btn back-up" id="backUp">↑ Walk back to the start</button>
+      </section>
+    </div>
+  </div>
+
+  <dialog id="dlg" aria-labelledby="dlg-title">
+    <div class="dlg-sheet">
+      <form method="dialog"><button class="close" aria-label="Close">Close <span aria-hidden="true">&times;</span></button></form>
+      <div id="dlgBody"></div>
+    </div>
+  </dialog>
+
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+  <noscript><p class="noscript">This page is a hallway you walk down with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -269,6 +269,18 @@ const ENTRIES = [
       'Sketch and wireframe photos are grayscale and the polished ones are in colour, but they are always real photos, never placeholders, and all text stays real and readable at every level. PenPal is a single small note in the sketch section. Nothing needs a pointer or a hover: the switch is four plain buttons.'
     ],
     learned: 'Using the design process as the interface turns the transitions into the content, and it is the easiest of the convergence ideas to navigate because the page is a plain scroll. It only works if the layout is identical across levels, which meant writing the components once and styling them three ways. The fonts cannot animate, so they swap at the start of the transition while everything else glides.'
+  },
+  {
+    n: 21,
+    slug: '21-lab-hallway',
+    title: 'The Lab Hallway',
+    date: '2026-10-06',
+    concept: 'The page is the hallway of a lab, in first person: scroll (or swipe) and you walk down it, with the earliest door nearest the entrance. Each stop is a numbered door with a hanging sign, the doors swing open as you pass and light spills out onto the floor, the photos from the Buoyanc\u00e9 work hang on the wall, a small robot with a black balloon stands in the middle, and the end of the hall has an exit sign and a front desk for contact.',
+    tried: [
+      'The hallway is 3D, with no library: walls, floor and ceiling are planes, the doors and signs are placed on them, and scrolling moves the whole hall towards you (smoothed, so it feels like a stride). A directory of seven numbered rooms is always on screen and walks you to a door, arrow keys step from room to room, and a bar at the bottom always says which room is ahead of you with an Enter button.',
+      'Going into a room opens its content as a lit room with the same text and photos as the other designs, with previous and next. Hanging signs face you so they read straight on from far away; the doors and signs are clicked by where they are drawn, because the browser would not hit-test small, far-away 3D elements reliably. The mouse also lets you look around a few degrees, but only slightly, so signs stay where you aim.'
+    ],
+    learned: 'This feels like the most immersive design so far, but it almost trades immersiveness for usability. The 3D effect while fun to interact with detracts from the glanceability and intuitiveness of how to navigate through the page. While this was a cool concept, I do no think it is very practical to move forward with.'
   }
 ];
 
