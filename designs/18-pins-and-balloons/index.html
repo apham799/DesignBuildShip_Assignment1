@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Alan Pham — Pins and Balloons</title>
+  <meta name="description" content="Alan Pham, HCI researcher and Pre-Doctoral MPCS student at the University of Chicago. One page that changes theme as you scroll: a pin display for the early work, then a room of tethered balloons for the lab and Buoyancé.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="pins" data-mode="portrait" data-view="pins">
+  <a class="skip" href="#undergrad">Skip to the content</a>
+
+  <canvas id="pins" aria-hidden="true"></canvas>
+  <figure class="portrait-photo" aria-hidden="true"><img id="portrait-photo" alt="" width="800" height="1000"></figure>
+
+  <header class="top">
+    <a class="back" href="../../index.html" aria-label="Back to the design log"><span aria-hidden="true">&larr;</span> <span class="back-text">Design log</span></a>
+    <nav aria-label="Chapters" id="chapters"></nav>
+  </header>
+
+  <main>
+    <section class="chapter hero" id="intro" data-theme="pins" data-mode="portrait" aria-labelledby="name">
+      <div class="hero-copy">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="name"></h1>
+        <p class="standing" id="standing"></p>
+        <p class="lab" id="lab-line"></p>
+        <div class="view" role="group" aria-label="Portrait view">
+          <button type="button" data-view="pins" aria-pressed="true">Pins</button>
+          <button type="button" data-view="photo" aria-pressed="false">Photo</button>
+        </div>
+        <p class="hint" aria-hidden="true"><span class="hint-pointer">Press into the pins. Scroll: the page changes as you go.</span><span class="hint-touch">Touch the pins. Scroll: the page changes as you go.</span></p>
+      </div>
+    </section>
+
+    <section class="chapter" id="undergrad" data-theme="pins" data-mode="terrain" aria-labelledby="undergrad-title">
+      <div class="wrap" id="undergrad-body"></div>
+    </section>
+
+    <section class="chapter with-stage" id="lab" data-theme="light" data-mode="flat" aria-labelledby="lab-title">
+      <div class="wrap split">
+        <div class="col" id="lab-body"></div>
+        <div class="stage" id="stage-lab" data-style="black" role="group" aria-label="Links to the Buoyancé paper, tethered balloons you can nudge"></div>
+      </div>
+    </section>
+
+    <section class="chapter with-stage" id="now" data-theme="dusk" data-mode="dusk" aria-labelledby="now-title">
+      <div class="wrap split">
+        <div class="col" id="now-body"></div>
+        <div class="stage" id="stage-now" data-style="glow" role="group" aria-label="Contact links, glowing balloons you can nudge"></div>
+      </div>
+    </section>
+  </main>
+
+  <noscript><p class="noscript">This page changes theme with JavaScript. Contact: apham799@uchicago.edu</p></noscript>
+
+  <script src="../../shared/content.js"></script>
+  <script src="portrait.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

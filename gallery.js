@@ -226,12 +226,25 @@ const ENTRIES = [
     slug: '17-mid-air-data',
     title: 'Mid-air Data',
     date: '2026-10-06',
-    concept: 'Buoyanc\u00e9 can show abstract data in mid-air, so the page is a small mid-air display: a 3D chart where every stop on my path is a black balloon on a tether over a robot. Left to right is when it happened, front to back is the topic, and height is the setting (in class, in the lab, in the graduate program). You turn the chart, and a table holds the same data.',
+    concept: 'Buoyanc\u00e9 can show abstract data in mid-air, so the page is a 3D mid-air display: a 3D chart where every stop on my path is a black balloon tethered to a robot. Left to right is when it happened, front to back is the topic, and height is the setting (in class, in the lab, in the graduate program). You turn the chart, and a table holds the same data.',
     tried: [
-      '(draft) A small 3D engine on a plain canvas: rotate, project with perspective and draw far to near. You can drag to turn it, use the Turn and Tilt sliders, or jump to a Front, Side or Top view, where the front reads like a timeline and the top shows the topic lanes. It turns slowly on its own until you touch it, and a Spin button stops that.',
-      '(draft) A table beside the chart lists the same eight points with the values for each axis, and it is the keyboard and screen reader way in. Picking a balloon or a row opens its description, with the Buoyanc\u00e9 photos plain below it. Labels are kept clear of the other balloons and each other.'
+      'A small 3D engine on a plain canvas: rotate, project with perspective and draw far to near. You can drag to turn it, use the Turn and Tilt sliders, or jump to a Front, Side or Top view, where the front reads like a timeline and the top shows the topic lanes. It turns slowly on its own until you touch it, and a Spin button stops that.',
+      'A table beside the chart lists the same eight points with the values for each axis, and it is the keyboard and screen reader way in. Picking a balloon or a row opens its description, with the Buoyanc\u00e9 photos plain below it. Labels are kept clear of the other balloons and each other.'
     ],
-    learned: '(draft) The three axes are my own reading of the work, not facts: the topics follow each project\u2019s tags and the settings are where it happened, so they are worth a check. A 3D scene needs a plain, accessible twin, which is why the table matters. It also overlaps designs 01 and 06 in its balloons, so the display itself (the box, axes and table) has to carry the difference.'
+
+    learned: 'The three axes are my own reading of the work, not facts: the topics follow each project\u2019s tags and the settings are where it happened, so they are worth a check. A 3D scene needs a plain, accessible twin, which is why the table matters. It also overlaps designs 01 and 06 in its balloons, so the display itself (the box, axes and table) has to carry the difference. Though there is a direct reference to my work and is in a form quite common in 3D-Modelling and Printing processes, the interface is a bit difficult to navigate making the information seem disorganized'
+  },
+  {
+    n: 18,
+    slug: '18-pins-and-balloons',
+    title: 'Pins and Balloons',
+    date: '2026-10-06',
+    concept: 'A first step towards the convergence designs: one page that changes its whole theme as you scroll, based on what you are reading. The early work (the intro and undergrad) sits on the dark pin display from design 3, then the page lights up into a clean white room of tethered balloons from design 1 for the lab and Buoyanc\u00e9, and ends on a dusk pin display with glowing balloons for now.',
+    tried: [
+      'The theme belongs to the section you are in: a small observer sets a theme and a pin-display mode on the page, so the colours, the cards and the pin field all fade over a second as you cross a chapter boundary. The pins ripple when the room changes, then fade out entirely in the white room (and stop being drawn) so the balloons own that space.',
+      'The balloons are the real links, not decoration: in the lab chapter they open the ACM paper, the lab project page and the PDF, and in the last chapter they are email, LinkedIn and my previous portfolio. They keep design 1\u2019s rules (springs home, pushed away from the hand, a rope of fixed length to a robot) and rise off their robots when you scroll to them. The header shows the four chapters, and PenPal is kept to a short note under undergrad on purpose.'
+    ],
+    learned: 'Letting scroll position pick the theme makes the page feel like it has chapters, but it only works if every chapter also reads fine without the effect, so all text sits on solid cards. Though the landing page looks similar, I do not think this is how I want to move forward with future convergent designs.'
   }
 ];
 
